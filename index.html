@@ -262,6 +262,185 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/05/django-debug-toolbar的使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Percy">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/author.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PercyT’s blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/05/django-debug-toolbar的使用/" itemprop="url">django-debug-toolbar的使用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-05T20:49:49+08:00">
+                2019-10-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Django后端/" itemprop="url" rel="index">
+                    <span itemprop="name">Django后端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<p><em>关于如何使用django-debug-toolbar这个开发django的调试工具</em></p>
+<h3 id="1-进行安装"><a href="#1-进行安装" class="headerlink" title="1. 进行安装"></a>1. 进行安装</h3><pre><code>pip install django-debug-toolbar</code></pre><p>一般我们先workon虚拟环境再进行操作</p>
+<h3 id="2-把debug-toolbar添加进INSTALLED-APPS"><a href="#2-把debug-toolbar添加进INSTALLED-APPS" class="headerlink" title="2. 把debug_toolbar添加进INSTALLED_APPS"></a>2. 把debug_toolbar添加进INSTALLED_APPS</h3><p>在settings.py文件下面添加这个debug_toolbar<br><strong>注意：如上图官方文档说的，一定要把debug_toolbar放在django.contrib.staticfiles，当然不要理解为紧跟着django.contrib.staticfiles后面，只要在后面即可。</strong></p>
+<h3 id="3-urls中配置"><a href="#3-urls中配置" class="headerlink" title="3. urls中配置"></a>3. urls中配置</h3><p>在项目url中配置 path中，地址为<strong>debug</strong>/，视图为include(debug_toolbar.urls)<br>完整的配置为： </p>
+<pre><code>if settings.DEBUG:
+   import debug_toolbar
+   urlpatterns.append(path(&quot;__debug__/&quot;,include(debug_toolbar.urls)))</code></pre><h3 id="4-配置中间件"><a href="#4-配置中间件" class="headerlink" title="4. 配置中间件"></a>4. 配置中间件</h3><p>在settings中的MIDDLEWARE配置’debug_toolbar.middleware.DebugToolbarMiddleware’,我们要把django-debug-toolbar这个中间件尽可能配置到最前面，但是，必须要放在处理编码和响应内容的中间件后面，比如我们要是使用了GZipMiddleware，就要把DebugToolbarMiddleware放在GZipMiddleware后面。 </p>
+<h3 id="5-配置ip地址"><a href="#5-配置ip地址" class="headerlink" title="5. 配置ip地址"></a>5. 配置ip地址</h3><p>我们需要在settings.py文件中配置INTERNAL_IPS，只有访问这里面配置的ip地址时， Debug Toolbar才是展示出来。因为我们一般都是本地开发，所以，直接配置为127.0.0.1就可以了 </p>
+<pre><code>INTERNAL_IPS = [&apos;127.0.0.1&apos;]</code></pre><h3 id="6-根据想要的功能配置面板"><a href="#6-根据想要的功能配置面板" class="headerlink" title="6. 根据想要的功能配置面板"></a>6. 根据想要的功能配置面板</h3><p>在settings.py中根据想要的面板进行展示</p>
+<pre><code>DEBUG_TOOLBAR_PANELS = [
+# 代表是哪个django版本
+#&apos;debug_toolbar.panels.versions.VersionsPanel&apos;,
+# 用来计时的，判断加载当前页面总共花的时间
+&apos;debug_toolbar.panels.timer.TimerPanel&apos;,
+# 读取django中的配置信息
+#&apos;debug_toolbar.panels.settings.SettingsPanel&apos;,
+# 看到当前请求头和响应头信息
+#&apos;debug_toolbar.panels.headers.HeadersPanel&apos;,
+# 当前请求的想信息（视图函数，Cookie信息，Session信息等）
+&apos;debug_toolbar.panels.request.RequestPanel&apos;,
+# 查看SQL语句
+&apos;debug_toolbar.panels.sql.SQLPanel&apos;,
+# 静态文件
+#&apos;debug_toolbar.panels.staticfiles.StaticFilesPanel&apos;,
+# 模板文件
+#&apos;debug_toolbar.panels.templates.TemplatesPanel&apos;,
+# 缓存
+#&apos;debug_toolbar.panels.cache.CachePanel&apos;,
+# 信号
+#&apos;debug_toolbar.panels.signals.SignalsPanel&apos;,
+# 日志
+#&apos;debug_toolbar.panels.logging.LoggingPanel&apos;,
+# 重定向
+#&apos;debug_toolbar.panels.redirects.RedirectsPanel&apos;,</code></pre><p>]<br>这里我使用了其中几个模板，效果如下图所示：<br><img src="http://pyc1lgciv.bkt.clouddn.com/1570283552210.png" alt="avatar"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/26/django-restful/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -594,7 +773,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -616,7 +795,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
