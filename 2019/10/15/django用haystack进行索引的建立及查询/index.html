@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Django,Python,haystack,search,">
 
 
 
@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="个人博客，主要涉及后端知识共享、实践教程、前沿技术共同学习等方面">
-<meta property="og:type" content="website">
-<meta property="og:title" content="PercyT’s blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="使用haystack进行索引的建立以及查询 一. 安装插件1pip install whoosh django-haystack jieba   haystack是django的开源搜索框架，该框架支持Solr,Elasticsearch,Whoosh,Xapian搜索引擎，不用更改代码，直接切换引擎，减少代码量。  搜索引擎使用Whoosh，这是一个由纯Python实现的全文搜索引擎，没有二进">
+<meta name="keywords" content="Django,Python,haystack,search">
+<meta property="og:type" content="article">
+<meta property="og:title" content="django使用haystack实现索引查找">
+<meta property="og:url" content="http://yoursite.com/2019/10/15/django用haystack进行索引的建立及查询/index.html">
 <meta property="og:site_name" content="PercyT’s blog">
-<meta property="og:description" content="个人博客，主要涉及后端知识共享、实践教程、前沿技术共同学习等方面">
+<meta property="og:description" content="使用haystack进行索引的建立以及查询 一. 安装插件1pip install whoosh django-haystack jieba   haystack是django的开源搜索框架，该框架支持Solr,Elasticsearch,Whoosh,Xapian搜索引擎，不用更改代码，直接切换引擎，减少代码量。  搜索引擎使用Whoosh，这是一个由纯Python实现的全文搜索引擎，没有二进">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-15T15:53:07.409Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PercyT’s blog">
-<meta name="twitter:description" content="个人博客，主要涉及后端知识共享、实践教程、前沿技术共同学习等方面">
+<meta name="twitter:title" content="django使用haystack实现索引查找">
+<meta name="twitter:description" content="使用haystack进行索引的建立以及查询 一. 安装插件1pip install whoosh django-haystack jieba   haystack是django的开源搜索框架，该框架支持Solr,Elasticsearch,Whoosh,Xapian搜索引擎，不用更改代码，直接切换引擎，减少代码量。  搜索引擎使用Whoosh，这是一个由纯Python实现的全文搜索引擎，没有二进">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/10/15/django用haystack进行索引的建立及查询/">
 
 
 
 
 
-  <title>PercyT’s blog</title>
+  <title>django使用haystack实现索引查找 | PercyT’s blog</title>
   
 
 
@@ -143,8 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -247,9 +248,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -279,9 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/15/django用haystack进行索引的建立及查询/" itemprop="url">django使用haystack实现索引查找</a></h1>
+          <h1 class="post-title" itemprop="name headline">django使用haystack实现索引查找</h1>
         
 
         <div class="post-meta">
@@ -353,9 +352,7 @@
       
 
       
-        
-          
-            <hr>
+        <hr>
 <p><em>使用haystack进行索引的建立以及查询</em></p>
 <h3 id="一-安装插件"><a href="#一-安装插件" class="headerlink" title="一. 安装插件"></a>一. 安装插件</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip <span class="keyword">install</span> whoosh django-haystack jieba</span><br></pre></td></tr></table></figure>
 
@@ -389,8 +386,6 @@
 <h3 id="9-改写settings-py中搜索引擎"><a href="#9-改写settings-py中搜索引擎" class="headerlink" title="9. 改写settings.py中搜索引擎"></a>9. 改写settings.py中搜索引擎</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">HAYSTACK_CONNECTIONS = &#123;</span><br><span class="line">    <span class="string">'default'</span>: &#123;</span><br><span class="line">        <span class="string">'ENGINE'</span>: <span class="string">'apps.news.whoosh_cn_backend.WhooshEngine'</span>,      <span class="selector-id">#news</span>.whoosh_cn_backend便是你刚刚添加的文件</span><br><span class="line">        <span class="string">'PATH'</span>: os<span class="selector-class">.path</span><span class="selector-class">.join</span>(BASE_DIR, <span class="string">'whoosh_index'</span></span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-          
-        
       
     </div>
     
@@ -404,359 +399,53 @@
     
     <div>
       
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/05/django-debug-toolbar的使用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Percy">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/author.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="PercyT’s blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/05/django-debug-toolbar的使用/" itemprop="url">django-debug-toolbar的使用</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-05T20:49:49+08:00">
-                2019-10-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Django后端/" itemprop="url" rel="index">
-                    <span itemprop="name">Django后端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/Django/" rel="tag"><i class="fa fa-tag"></i> Django</a>
           
-
+            <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
           
-            
+            <a href="/tags/haystack/" rel="tag"><i class="fa fa-tag"></i> haystack</a>
           
-
+            <a href="/tags/search/" rel="tag"><i class="fa fa-tag"></i> search</a>
           
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <hr>
-<p><em>关于如何使用django-debug-toolbar这个开发django的调试工具</em></p>
-<h3 id="1-进行安装"><a href="#1-进行安装" class="headerlink" title="1. 进行安装"></a>1. 进行安装</h3><pre><code>pip install django-debug-toolbar</code></pre><p>一般我们先workon虚拟环境再进行操作</p>
-<h3 id="2-把debug-toolbar添加进INSTALLED-APPS"><a href="#2-把debug-toolbar添加进INSTALLED-APPS" class="headerlink" title="2. 把debug_toolbar添加进INSTALLED_APPS"></a>2. 把debug_toolbar添加进INSTALLED_APPS</h3><p>在settings.py文件下面添加这个debug_toolbar<br><strong>注意：如上图官方文档说的，一定要把debug_toolbar放在django.contrib.staticfiles，当然不要理解为紧跟着django.contrib.staticfiles后面，只要在后面即可。</strong></p>
-<h3 id="3-urls中配置"><a href="#3-urls中配置" class="headerlink" title="3. urls中配置"></a>3. urls中配置</h3><p>在项目url中配置 path中，地址为<strong>debug</strong>/，视图为include(debug_toolbar.urls)<br>完整的配置为： </p>
-<pre><code>if settings.DEBUG:
-   import debug_toolbar
-   urlpatterns.append(path(&quot;__debug__/&quot;,include(debug_toolbar.urls)))</code></pre><h3 id="4-配置中间件"><a href="#4-配置中间件" class="headerlink" title="4. 配置中间件"></a>4. 配置中间件</h3><p>在settings中的MIDDLEWARE配置’debug_toolbar.middleware.DebugToolbarMiddleware’,我们要把django-debug-toolbar这个中间件尽可能配置到最前面，但是，必须要放在处理编码和响应内容的中间件后面，比如我们要是使用了GZipMiddleware，就要把DebugToolbarMiddleware放在GZipMiddleware后面。 </p>
-<h3 id="5-配置ip地址"><a href="#5-配置ip地址" class="headerlink" title="5. 配置ip地址"></a>5. 配置ip地址</h3><p>我们需要在settings.py文件中配置INTERNAL_IPS，只有访问这里面配置的ip地址时， Debug Toolbar才是展示出来。因为我们一般都是本地开发，所以，直接配置为127.0.0.1就可以了 </p>
-<pre><code>INTERNAL_IPS = [&apos;127.0.0.1&apos;]</code></pre><h3 id="6-根据想要的功能配置面板"><a href="#6-根据想要的功能配置面板" class="headerlink" title="6. 根据想要的功能配置面板"></a>6. 根据想要的功能配置面板</h3><p>在settings.py中根据想要的面板进行展示</p>
-<pre><code>DEBUG_TOOLBAR_PANELS = [
-# 代表是哪个django版本
-#&apos;debug_toolbar.panels.versions.VersionsPanel&apos;,
-# 用来计时的，判断加载当前页面总共花的时间
-&apos;debug_toolbar.panels.timer.TimerPanel&apos;,
-# 读取django中的配置信息
-#&apos;debug_toolbar.panels.settings.SettingsPanel&apos;,
-# 看到当前请求头和响应头信息
-#&apos;debug_toolbar.panels.headers.HeadersPanel&apos;,
-# 当前请求的想信息（视图函数，Cookie信息，Session信息等）
-&apos;debug_toolbar.panels.request.RequestPanel&apos;,
-# 查看SQL语句
-&apos;debug_toolbar.panels.sql.SQLPanel&apos;,
-# 静态文件
-#&apos;debug_toolbar.panels.staticfiles.StaticFilesPanel&apos;,
-# 模板文件
-#&apos;debug_toolbar.panels.templates.TemplatesPanel&apos;,
-# 缓存
-#&apos;debug_toolbar.panels.cache.CachePanel&apos;,
-# 信号
-#&apos;debug_toolbar.panels.signals.SignalsPanel&apos;,
-# 日志
-#&apos;debug_toolbar.panels.logging.LoggingPanel&apos;,
-# 重定向
-#&apos;debug_toolbar.panels.redirects.RedirectsPanel&apos;,</code></pre><p>]<br>这里我使用了其中几个模板，效果如下图所示：<br><img src="http://pyc1lgciv.bkt.clouddn.com/1570283552210.png" alt="avatar"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
       
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/26/django-restful/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Percy">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/author.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="PercyT’s blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/26/django-restful/" itemprop="url">用Django写restful接口遇到的问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-26T21:21:49+08:00">
-                2019-09-26
-              </time>
+              <a href="/2019/10/05/django-debug-toolbar的使用/" rel="next" title="django-debug-toolbar的使用">
+                <i class="fa fa-chevron-left"></i> django-debug-toolbar的使用
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Django后端/" itemprop="url" rel="index">
-                    <span itemprop="name">Django后端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <hr>
-<p>最近在开发一个Django项目过程中遇到了一个问题：不知道如何将从后端返回的数据返回前端按照想要的格式来传递。</p>
-<h3 id="首先定义的restful接口返回前端为："><a href="#首先定义的restful接口返回前端为：" class="headerlink" title="首先定义的restful接口返回前端为："></a>首先定义的restful接口返回前端为：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">json_dict = &#123;<span class="string">"code"</span>:code, <span class="string">"message"</span>:message, <span class="string">"data"</span>:data&#125;</span><br><span class="line"><span class="comment"># code表示当前状态码 message表示报错消息 data表示要传输的数据</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="当前遇到的一个需求"><a href="#当前遇到的一个需求" class="headerlink" title="当前遇到的一个需求"></a>当前遇到的一个需求</h3><p>通过点击‘查看更多’的按钮，返回更多的新闻，已经在后端写了如下代码的一个借口：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">def news_list(request):</span><br><span class="line">    <span class="comment"># 通过p参数来指定要获取第几页的数据</span></span><br><span class="line">    <span class="comment"># 并且这个p参数是通过查询字符串的方式传过来的</span></span><br><span class="line">    page = int(request.GET.get(<span class="string">'p'</span>,1)) <span class="comment"># 默认为1</span></span><br><span class="line">    start = (page-1)*settings.ONE_PAGE_NEWS_COUNT</span><br><span class="line">    end = start + settings.ONE_PAGE_NEWS_COUNT</span><br><span class="line">    news = News.objects.order_by(<span class="string">'-pub-time'</span>)[start:end].value()</span><br><span class="line">    <span class="comment"># 通过value方法将 QurySet对象 变成字典的形式，然后从News的数据库中获取内容</span></span><br><span class="line">    <span class="keyword">for</span> new <span class="keyword">in</span> news:</span><br><span class="line">        <span class="built_in">print</span>(new)</span><br></pre></td></tr></table></figure>
-
-<p>在news模型中我是按以下代码进行定义的：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class News(models.Model):</span><br><span class="line">    title = models.CharField(max_length=200)</span><br><span class="line">    desc = models.CharField(max_length=200)</span><br><span class="line">    thumbnail = models.URLField()</span><br><span class="line">    context = models.TextField()</span><br><span class="line">    pub_time = models.DateTimeField(auto_now_add=True)</span><br><span class="line">    category = models.ForeignKey(<span class="string">'NewsCategroy'</span>, on_delete=models.SET_NULL,null=True)</span><br><span class="line">    author = models.ForeignKey(<span class="string">'xfzauth.User'</span>, on_delete=models.SET_NULL,null=True)</span><br></pre></td></tr></table></figure>
-
-<p>可以看出调用了category的外键，而categroy模型中有含有‘id’和‘name’两个字段，我想返回的data中含有这两个字段，而事实上只返回了‘id’这个字段。</p>
-<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>在查看很多文章后，了解到了django rest Framework这个rest的框架，官方文档地址为<a href="http://www.django-rest-framework.org" title="django rest" target="_blank" rel="noopener">Django Rest</a>，在阅读了一点快速入门的官方文档后，我了解到了<strong>serializar</strong>这个序列化器，发现他的使用方法和django框架中建立form表单相当类似。<br>然后我在当前app位置下建立了一个新的py文件，并命名为serializar，然后仿照form表单的写法写了以下的代码：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">from rest_framework <span class="keyword">import</span> serializers</span><br><span class="line">from .models <span class="keyword">import</span> News,NewsCategroy</span><br><span class="line">from apps.xfzauth.serializers <span class="keyword">import</span> UserSerializer</span><br><span class="line"></span><br><span class="line">class NewsCategorySerializer(serializers.ModelSerializer):</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        model = NewsCategroy</span><br><span class="line">        fields = ('id','name')</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class NewsSerializer(serializers.ModelSerializer):</span><br><span class="line">    category = NewsCategorySerializer()</span><br><span class="line">    author = UserSerializer()</span><br><span class="line">    class Meta:</span><br><span class="line">        model = News</span><br><span class="line">        fields = ('id','title','desc','thumbnail','category','author')</span><br></pre></td></tr></table></figure>
-
-<p>然后在view.py文件下改写了之前的接口，不再调用value方法。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">def news_list(request):</span><br><span class="line">    <span class="comment"># 通过p参数来指定要获取第几页的数据</span></span><br><span class="line">    <span class="comment"># 并且这个p参数是通过查询字符串的方式传过来的</span></span><br><span class="line">    page = int(request.GET.get('p',1))</span><br><span class="line">    <span class="keyword">start</span> = (page<span class="number">-1</span>)*settings.ONE_PAGE_NEWS_COUNT</span><br><span class="line">    <span class="keyword">end</span> = <span class="keyword">start</span> + settings.ONE_PAGE_NEWS_COUNT</span><br><span class="line">    news = News.objects.order_by(<span class="string">'-pub-time'</span>)[<span class="keyword">start</span>:<span class="keyword">end</span>]</span><br><span class="line">    serializer = NewsSerializer(news,many=<span class="literal">True</span>) <span class="comment"># 新建一个对象，many表示要处理很多个这样的数据</span></span><br><span class="line">    <span class="keyword">data</span> = serializer.data <span class="comment"># 获取当前对象的数据</span></span><br><span class="line">    <span class="keyword">return</span> restful.result(<span class="keyword">data</span>=<span class="keyword">data</span>) <span class="comment"># 调用restful的方法，将data传递进去</span></span><br></pre></td></tr></table></figure>
-
-<p>最后成功显示了’id’和’name’这两个字段，能在前端页面显示分类的名字，而不是他的序号</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -766,145 +455,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/29/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Percy">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/author.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="PercyT’s blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/29/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-29T13:57:41+08:00">
-                2019-08-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -912,6 +467,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -932,8 +491,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1011,6 +579,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-安装插件"><span class="nav-number">1.</span> <span class="nav-text">一. 安装插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-添加到Settings-py文件的INSTALL-APP中"><span class="nav-number">2.</span> <span class="nav-text">2. 添加到Settings.py文件的INSTALL_APP中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-增加搜索引擎配置"><span class="nav-number">3.</span> <span class="nav-text">3. 增加搜索引擎配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-新建search-indexes-py文件"><span class="nav-number">4.</span> <span class="nav-text">4. 新建search_indexes.py文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-新建数据模板路径ArticlePost-text-txt"><span class="nav-number">5.</span> <span class="nav-text">5. 新建数据模板路径ArticlePost_text.txt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-添加url路由"><span class="nav-number">6.</span> <span class="nav-text">6. 添加url路由</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-重建索引文件"><span class="nav-number">7.</span> <span class="nav-text">7. 重建索引文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-创建whoosh-cn-backend-py文件"><span class="nav-number">8.</span> <span class="nav-text">8. 创建whoosh_cn_backend.py文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-改写settings-py中搜索引擎"><span class="nav-number">9.</span> <span class="nav-text">9. 改写settings.py中搜索引擎</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=31010566&auto=0&height=66"></iframe>
       
@@ -1152,6 +736,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
