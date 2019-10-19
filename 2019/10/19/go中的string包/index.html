@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Django,Python,toolbar,debug,">
+  <meta name="keywords" content="golang,string,">
 
 
 
@@ -79,20 +79,18 @@
 
 
 
-<meta name="description" content="关于如何使用django-debug-toolbar这个开发django的调试工具 1. 进行安装pip install django-debug-toolbar一般我们先workon虚拟环境再进行操作 2. 把debug_toolbar添加进INSTALLED_APPS在settings.py文件下面添加这个debug_toolbar注意：如上图官方文档说的，一定要把debug_toolbar">
-<meta name="keywords" content="Django,Python,toolbar,debug">
+<meta name="description" content="golang学习过程中接触到了字符串处理，每种语言都有字符串处理的内建函数，golang则是将内建函数放置在string包中，概括了一些常用的string包中的函数列举如下： HasPrefix:判断字符串 s 是否以 prefix 开头： 1strings.HasPrefix(s, prefix string) bool  HasSuffix 判断字符串 s 是否以 suffix 结尾： 1s">
+<meta name="keywords" content="golang,string">
 <meta property="og:type" content="article">
-<meta property="og:title" content="django-debug-toolbar的使用">
-<meta property="og:url" content="http://yoursite.com/2019/10/05/django-debug-toolbar的使用/index.html">
+<meta property="og:title" content="go中的string包">
+<meta property="og:url" content="http://yoursite.com/2019/10/19/go中的string包/index.html">
 <meta property="og:site_name" content="PercyT’s blog">
-<meta property="og:description" content="关于如何使用django-debug-toolbar这个开发django的调试工具 1. 进行安装pip install django-debug-toolbar一般我们先workon虚拟环境再进行操作 2. 把debug_toolbar添加进INSTALLED_APPS在settings.py文件下面添加这个debug_toolbar注意：如上图官方文档说的，一定要把debug_toolbar">
+<meta property="og:description" content="golang学习过程中接触到了字符串处理，每种语言都有字符串处理的内建函数，golang则是将内建函数放置在string包中，概括了一些常用的string包中的函数列举如下： HasPrefix:判断字符串 s 是否以 prefix 开头： 1strings.HasPrefix(s, prefix string) bool  HasSuffix 判断字符串 s 是否以 suffix 结尾： 1s">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://pyc1lgciv.bkt.clouddn.com/1570283552210.png">
-<meta property="og:updated_time" content="2019-10-05T13:53:16.559Z">
+<meta property="og:updated_time" content="2019-10-19T06:10:29.974Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="django-debug-toolbar的使用">
-<meta name="twitter:description" content="关于如何使用django-debug-toolbar这个开发django的调试工具 1. 进行安装pip install django-debug-toolbar一般我们先workon虚拟环境再进行操作 2. 把debug_toolbar添加进INSTALLED_APPS在settings.py文件下面添加这个debug_toolbar注意：如上图官方文档说的，一定要把debug_toolbar">
-<meta name="twitter:image" content="http://pyc1lgciv.bkt.clouddn.com/1570283552210.png">
+<meta name="twitter:title" content="go中的string包">
+<meta name="twitter:description" content="golang学习过程中接触到了字符串处理，每种语言都有字符串处理的内建函数，golang则是将内建函数放置在string包中，概括了一些常用的string包中的函数列举如下： HasPrefix:判断字符串 s 是否以 prefix 开头： 1strings.HasPrefix(s, prefix string) bool  HasSuffix 判断字符串 s 是否以 suffix 结尾： 1s">
 
 
 
@@ -122,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/10/05/django-debug-toolbar的使用/">
+  <link rel="canonical" href="http://yoursite.com/2019/10/19/go中的string包/">
 
 
 
 
 
-  <title>django-debug-toolbar的使用 | PercyT’s blog</title>
+  <title>go中的string包 | PercyT’s blog</title>
   
 
 
@@ -265,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/05/django-debug-toolbar的使用/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/19/go中的string包/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Percy">
@@ -282,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">django-debug-toolbar的使用</h1>
+          <h1 class="post-title" itemprop="name headline">go中的string包</h1>
         
 
         <div class="post-meta">
@@ -294,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-05T20:49:49+08:00">
-                2019-10-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-19T13:57:53+08:00">
+                2019-10-19
               </time>
             
 
@@ -317,8 +315,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Django后端/" itemprop="url" rel="index">
-                    <span itemprop="name">Django后端</span>
+                  <a href="/categories/golang/" itemprop="url" rel="index">
+                    <span itemprop="name">golang</span>
                   </a>
                 </span>
 
@@ -355,40 +353,53 @@
 
       
         <hr>
-<p><em>关于如何使用django-debug-toolbar这个开发django的调试工具</em></p>
-<h3 id="1-进行安装"><a href="#1-进行安装" class="headerlink" title="1. 进行安装"></a>1. 进行安装</h3><pre><code>pip install django-debug-toolbar</code></pre><p>一般我们先workon虚拟环境再进行操作</p>
-<h3 id="2-把debug-toolbar添加进INSTALLED-APPS"><a href="#2-把debug-toolbar添加进INSTALLED-APPS" class="headerlink" title="2. 把debug_toolbar添加进INSTALLED_APPS"></a>2. 把debug_toolbar添加进INSTALLED_APPS</h3><p>在settings.py文件下面添加这个debug_toolbar<br><strong>注意：如上图官方文档说的，一定要把debug_toolbar放在django.contrib.staticfiles，当然不要理解为紧跟着django.contrib.staticfiles后面，只要在后面即可。</strong></p>
-<h3 id="3-urls中配置"><a href="#3-urls中配置" class="headerlink" title="3. urls中配置"></a>3. urls中配置</h3><p>在项目url中配置 path中，地址为<strong>debug</strong>/，视图为include(debug_toolbar.urls)<br>完整的配置为： </p>
-<pre><code>if settings.DEBUG:
-   import debug_toolbar
-   urlpatterns.append(path(&quot;__debug__/&quot;,include(debug_toolbar.urls)))</code></pre><h3 id="4-配置中间件"><a href="#4-配置中间件" class="headerlink" title="4. 配置中间件"></a>4. 配置中间件</h3><p>在settings中的MIDDLEWARE配置’debug_toolbar.middleware.DebugToolbarMiddleware’,我们要把django-debug-toolbar这个中间件尽可能配置到最前面，但是，必须要放在处理编码和响应内容的中间件后面，比如我们要是使用了GZipMiddleware，就要把DebugToolbarMiddleware放在GZipMiddleware后面。 </p>
-<h3 id="5-配置ip地址"><a href="#5-配置ip地址" class="headerlink" title="5. 配置ip地址"></a>5. 配置ip地址</h3><p>我们需要在settings.py文件中配置INTERNAL_IPS，只有访问这里面配置的ip地址时， Debug Toolbar才是展示出来。因为我们一般都是本地开发，所以，直接配置为127.0.0.1就可以了 </p>
-<pre><code>INTERNAL_IPS = [&apos;127.0.0.1&apos;]</code></pre><h3 id="6-根据想要的功能配置面板"><a href="#6-根据想要的功能配置面板" class="headerlink" title="6. 根据想要的功能配置面板"></a>6. 根据想要的功能配置面板</h3><p>在settings.py中根据想要的面板进行展示</p>
-<pre><code>DEBUG_TOOLBAR_PANELS = [
-# 代表是哪个django版本
-#&apos;debug_toolbar.panels.versions.VersionsPanel&apos;,
-# 用来计时的，判断加载当前页面总共花的时间
-&apos;debug_toolbar.panels.timer.TimerPanel&apos;,
-# 读取django中的配置信息
-#&apos;debug_toolbar.panels.settings.SettingsPanel&apos;,
-# 看到当前请求头和响应头信息
-#&apos;debug_toolbar.panels.headers.HeadersPanel&apos;,
-# 当前请求的想信息（视图函数，Cookie信息，Session信息等）
-&apos;debug_toolbar.panels.request.RequestPanel&apos;,
-# 查看SQL语句
-&apos;debug_toolbar.panels.sql.SQLPanel&apos;,
-# 静态文件
-#&apos;debug_toolbar.panels.staticfiles.StaticFilesPanel&apos;,
-# 模板文件
-#&apos;debug_toolbar.panels.templates.TemplatesPanel&apos;,
-# 缓存
-#&apos;debug_toolbar.panels.cache.CachePanel&apos;,
-# 信号
-#&apos;debug_toolbar.panels.signals.SignalsPanel&apos;,
-# 日志
-#&apos;debug_toolbar.panels.logging.LoggingPanel&apos;,
-# 重定向
-#&apos;debug_toolbar.panels.redirects.RedirectsPanel&apos;,</code></pre><p>]<br>这里我使用了其中几个模板，效果如下图所示：<br><img src="http://pyc1lgciv.bkt.clouddn.com/1570283552210.png" alt="avatar"></p>
+<h4 id="golang学习过程中接触到了字符串处理，每种语言都有字符串处理的内建函数，golang则是将内建函数放置在string包中，概括了一些常用的string包中的函数"><a href="#golang学习过程中接触到了字符串处理，每种语言都有字符串处理的内建函数，golang则是将内建函数放置在string包中，概括了一些常用的string包中的函数" class="headerlink" title="golang学习过程中接触到了字符串处理，每种语言都有字符串处理的内建函数，golang则是将内建函数放置在string包中，概括了一些常用的string包中的函数"></a>golang学习过程中接触到了字符串处理，每种语言都有字符串处理的内建函数，golang则是将内建函数放置在string包中，概括了一些常用的string包中的函数</h4><p>列举如下：</p>
+<p>HasPrefix:判断字符串 s 是否以 prefix 开头：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings.HasPrefix(s,<span class="built_in"> prefix </span>string) bool</span><br></pre></td></tr></table></figure>
+
+<p>HasSuffix 判断字符串 s 是否以 suffix 结尾：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings.HasSuffix(s, suffix <span class="built_in">string</span>) <span class="keyword">bool</span></span><br></pre></td></tr></table></figure>
+
+<p>Contains 判断字符串 s 是否包含 substr：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">strings.Contains(s, </span><span class="keyword">substr </span><span class="keyword">string) </span><span class="keyword">bool</span></span><br></pre></td></tr></table></figure>
+
+<p>Index 返回字符串 str 在字符串 s 中的索引（str 的第一个字符的索引），-1 表示字符串 s 不包含字符串 str：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">strings.Index(s, </span><span class="keyword">str </span><span class="keyword">string) </span>int</span><br></pre></td></tr></table></figure>
+
+<p>LastIndex 返回字符串 str 在字符串 s 中最后出现位置的索引（str 的第一个字符的索引），-1 表示字符串 s 不包含字符串 str：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">strings.LastIndex(s, </span><span class="keyword">str </span><span class="keyword">string) </span>int</span><br></pre></td></tr></table></figure>
+
+<p>如果需要查询非 ASCII 编码的字符在父字符串中的位置，建议使用以下函数来对字符进行定位：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings.IndexRune(s <span class="keyword">string</span>, r <span class="keyword">rune</span>|<span class="keyword">int</span> <span class="keyword">int</span>) <span class="keyword">int</span></span><br></pre></td></tr></table></figure>
+
+<p>Replace 用于将字符串 str 中的前 n 个字符串 old 替换为字符串 new，并返回一个新的字符串，如果 n = -1 则替换所有字符串 old 为字符串 new：</p>
+<figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings.<span class="built_in">Replace</span>(str, old, <span class="keyword">new</span>, n) <span class="built_in">string</span></span><br></pre></td></tr></table></figure>
+
+<p>Count 用于计算字符串 str 在字符串 s 中出现的非重叠次数：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">strings.Count(s, </span><span class="keyword">str </span><span class="keyword">string) </span>int</span><br></pre></td></tr></table></figure>
+
+<p>Repeat 用于重复 count 次字符串 s 并返回一个新的字符串：</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings.<span class="built_in">Repeat</span>(s, <span class="built_in">count</span> <span class="built_in">int</span>) string</span><br></pre></td></tr></table></figure>
+
+<p>ToLower 将字符串中的 Unicode 字符全部转换为相应的小写字符：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings.ToLower(s) <span class="built_in">string</span></span><br></pre></td></tr></table></figure>
+
+<p>ToUpper 将字符串中的 Unicode 字符全部转换为相应的大写字符：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings.ToUpper(s) <span class="built_in">string</span></span><br></pre></td></tr></table></figure>
+
+<p> strings.TrimSpace(s) 来剔除字符串开头和结尾的空白符号；如果你想要剔除指定字符，则可以使用 strings.Trim(s, “cut”) 来将开头和结尾的 cut 去除掉。该函数的第二个参数可以包含任何字符，如果你只想剔除开头或者结尾的字符串，则可以使用 TrimLeft 或者 TrimRight 来实现。</p>
+<p>strings.Fields(s) 将会利用 1 个或多个空白符号来作为动态长度的分隔符将字符串分割成若干小块，并返回一个 slice，如果字符串只包含空白符号，则返回一个长度为 0 的 slice。</p>
+<p>strings.Split(s, sep) 用于自定义分割符号来对指定字符串进行分割，同样返回 slice。</p>
+<p>更多函数详见官方文档 <a href="http://docscn.studygolang.com/pkg/strings/" target="_blank" rel="noopener">string包</a></p>
+<p>字符串相关的类型转换都是通过 strconv 包实现的。<br>针对从数字类型转换到字符串，Go 提供了以下函数：</p>
+<ul>
+<li>strconv.Itoa(i int) string 返回数字 i 所表示的字符串类型的十进制数。</li>
+<li>strconv.FormatFloat(f float64, fmt byte, prec int, bitSize int) string 将 64 位浮点型的数字转换为字符串，其中 fmt 表示格式（其值可以是 ‘b’、’e’、’f’ 或 ‘g’），prec 表示精度，bitSize 则使用 32 表示 float32，用 64 表示 float64。<br>针对从字符串类型转换为数字类型，Go 提供了以下函数：</li>
+<li>strconv.Atoi(s string) (i int, err error) 将字符串转换为 int 型。</li>
+<li>strconv.ParseFloat(s string, bitSize int) (f float64, err error) 将字符串转换为 float64 型。</li>
+</ul>
+<p>利用多返回值的特性，这些函数会返回 2 个值，第 1 个是转换后的结果（如果转换成功），第 2 个是可能出现的错误</p>
+<p>更多函数详见官方文档 <a href="http://docs.studygolang.com/pkg/strconv/" target="_blank" rel="noopener">strconv包</a></p>
 
       
     </div>
@@ -416,13 +427,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Django/" rel="tag"><i class="fa fa-tag"></i> Django</a>
+            <a href="/tags/golang/" rel="tag"><i class="fa fa-tag"></i> golang</a>
           
-            <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
-          
-            <a href="/tags/toolbar/" rel="tag"><i class="fa fa-tag"></i> toolbar</a>
-          
-            <a href="/tags/debug/" rel="tag"><i class="fa fa-tag"></i> debug</a>
+            <a href="/tags/string/" rel="tag"><i class="fa fa-tag"></i> string</a>
           
         </div>
       
@@ -435,8 +442,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/09/26/django-restful/" rel="next" title="用Django写restful接口遇到的问题">
-                <i class="fa fa-chevron-left"></i> 用Django写restful接口遇到的问题
+              <a href="/2019/10/15/django用haystack进行索引的建立及查询/" rel="next" title="django使用haystack实现索引查找">
+                <i class="fa fa-chevron-left"></i> django使用haystack实现索引查找
               </a>
             
           </div>
@@ -444,10 +451,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/10/15/django用haystack进行索引的建立及查询/" rel="prev" title="django使用haystack实现索引查找">
-                django使用haystack实现索引查找 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -597,7 +600,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-进行安装"><span class="nav-number">1.</span> <span class="nav-text">1. 进行安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-把debug-toolbar添加进INSTALLED-APPS"><span class="nav-number">2.</span> <span class="nav-text">2. 把debug_toolbar添加进INSTALLED_APPS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-urls中配置"><span class="nav-number">3.</span> <span class="nav-text">3. urls中配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-配置中间件"><span class="nav-number">4.</span> <span class="nav-text">4. 配置中间件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-配置ip地址"><span class="nav-number">5.</span> <span class="nav-text">5. 配置ip地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-根据想要的功能配置面板"><span class="nav-number">6.</span> <span class="nav-text">6. 根据想要的功能配置面板</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#golang学习过程中接触到了字符串处理，每种语言都有字符串处理的内建函数，golang则是将内建函数放置在string包中，概括了一些常用的string包中的函数"><span class="nav-number">1.</span> <span class="nav-text">golang学习过程中接触到了字符串处理，每种语言都有字符串处理的内建函数，golang则是将内建函数放置在string包中，概括了一些常用的string包中的函数</span></a></li></ol></div>
             
 
           </div>
