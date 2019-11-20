@@ -262,6 +262,204 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/14/python面向对象高级特性/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Percy">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/author.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PercyT’s blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/11/14/python面向对象高级特性/" itemprop="url">python面向对象高级特性</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-14T21:03:46+08:00">
+                2019-11-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="最近在用python的时候遇到了一些之前没有遇到过的一些面向对象的一些方法，查了一些资料系统的了解了一下，其实并不复杂"><a href="#最近在用python的时候遇到了一些之前没有遇到过的一些面向对象的一些方法，查了一些资料系统的了解了一下，其实并不复杂" class="headerlink" title="最近在用python的时候遇到了一些之前没有遇到过的一些面向对象的一些方法，查了一些资料系统的了解了一下，其实并不复杂"></a>最近在用python的时候遇到了一些之前没有遇到过的一些面向对象的一些方法，查了一些资料系统的了解了一下，其实并不复杂</h4><h3 id="1-属性"><a href="#1-属性" class="headerlink" title="1.属性"></a>1.属性</h3><p>这里要介绍的属性其实和<strong>init</strong>函数里面定义的属性相似，适用于一些属性需要通过其他的一些属性经过复杂的计算而得出，这些属性我们通过一个方法来进行定义</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@property</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">pay</span></span>(<span class="keyword">self</span>)<span class="symbol">:</span></span><br><span class="line">    <span class="keyword">return</span> salary - <span class="keyword">use</span></span><br></pre></td></tr></table></figure>
+
+<p>这个方法就是普通的方法，但重点在于加了property的装饰器,在我们调用的时候直接 <strong>类名.pay</strong> 就可以了</p>
+<h3 id="2-staticmethod的classmethod"><a href="#2-staticmethod的classmethod" class="headerlink" title="2.staticmethod的classmethod"></a>2.staticmethod的classmethod</h3><p>staticmethod  静态方法： 让类里的方法，直接被类调用，就像正常的函数一样</p>
+<p>classmethod  类方法： 默认参数cls，可以直接用类名调用，与类属性交互</p>
+<p>所以在类中方法有三种:</p>
+<ul>
+<li>普通方法: 由对象调用；至少一个self参数；执行普通方法时，自动将调用该方法的对象赋值给self；</li>
+<li>静态方法: 由类调用； 至少一个cls参数；执行类方法时，自动将调用该方法的类复制给cls</li>
+<li>类方法: 由类来调用，无默认参数</li>
+</ul>
+<h3 id="3-isinstance和issubclass"><a href="#3-isinstance和issubclass" class="headerlink" title="3.isinstance和issubclass"></a>3.isinstance和issubclass</h3><p>isinstance(obj,cls)检查是否obj是否是类 cls 的对象</p>
+<p>issubclass(sub, super)检查sub类是否是 super 类的派生类 </p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class Foo:</span><br><span class="line">    pass</span><br><span class="line">class Son(Foo):</span><br><span class="line">    pass</span><br><span class="line">s=Son()</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(isinstance(s,Son)</span></span>) #True</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(isinstance(s,Foo)</span></span>) #True</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(type(s)</span></span> is Son) #False</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(type(s)</span></span> is Foo)  #False</span><br><span class="line">#isinstance和type的区别在于：当存在继承时，isinstance在判断时比较模糊，type则不会存在这个问题</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(issubclass(Son,Foo)</span></span>) #True</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(issubclass(Son,object)</span></span>) #True</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(issubclass(Foo,object)</span></span>) #True</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(issubclass(int,object)</span></span>) #True</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-反射"><a href="#4-反射" class="headerlink" title="4.反射"></a>4.反射</h3><p>反射的概念: 通过字符串的形式操作对象相关的属性</p>
+<p>下列方法适用于类和对象（一切皆对象，类本身也是一个对象）</p>
+<p>常用：hasattr、getattr</p>
+<p>不常用：setattr、delattr</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Foo:</span><br><span class="line">    f = <span class="string">'类的静态变量'</span></span><br><span class="line">    def __init__(self,name,age):</span><br><span class="line">        self.name=name</span><br><span class="line">        self.age=age</span><br><span class="line"></span><br><span class="line">    def say_hi(self):</span><br><span class="line">        print(<span class="string">'hi,%s'</span>%self.name)</span><br><span class="line"></span><br><span class="line">obj=Foo(<span class="string">'egon'</span>,<span class="number">73</span>)</span><br><span class="line"></span><br><span class="line">#检测是否含有某属性或方法</span><br><span class="line">print(hasattr(obj,<span class="string">'name'</span>))   #<span class="literal">True</span></span><br><span class="line">print(hasattr(obj,<span class="string">'say_hi'</span>))  #<span class="literal">True</span></span><br><span class="line"></span><br><span class="line">#获取属性或方法</span><br><span class="line">n=getattr(obj,<span class="string">'name'</span>)</span><br><span class="line">print(n)    #egon</span><br><span class="line">func=getattr(obj,<span class="string">'say_hi'</span>)</span><br><span class="line">func()     # hi,egon</span><br><span class="line"></span><br><span class="line"># print(getattr(obj,<span class="string">'aaaaaaaa'</span>,<span class="string">'不存在啊'</span>)) #报错</span><br><span class="line"></span><br><span class="line">#设置属性</span><br><span class="line">setattr(obj,<span class="string">'sb'</span>,<span class="literal">True</span>)</span><br><span class="line">setattr(obj,<span class="string">'show_name'</span>,lambda self:self.name+<span class="string">'sb'</span>)</span><br><span class="line">print(obj.__dict__)   #&#123;<span class="string">'name'</span>: <span class="string">'egon'</span>, <span class="string">'age'</span>: <span class="number">73</span>, <span class="string">'sb'</span>: <span class="literal">True</span>, <span class="string">'show_name'</span>: &lt;function &lt;lambda&gt; at <span class="number">0x0097C5D0</span>&gt;&#125;</span><br><span class="line">print(obj.show_name(obj))   #egonsb    </span><br><span class="line">#用setattr为对象设置方法时：需要在（）内手动传入绑定的对象，不能直接obj.show_name()，会报错</span><br><span class="line"></span><br><span class="line">#删除属性</span><br><span class="line">delattr(obj,<span class="string">'age'</span>)</span><br><span class="line">delattr(obj,<span class="string">'show_name'</span>)</span><br><span class="line"># delattr(obj,<span class="string">'show_name111'</span>)#不存在,则报错</span><br><span class="line"></span><br><span class="line">print(obj.__dict__)   #&#123;<span class="string">'name'</span>: <span class="string">'egon'</span>, <span class="string">'sb'</span>: <span class="literal">True</span>&#125;</span><br><span class="line"></span><br><span class="line">四中方法的使用演示</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-str-和-repr"><a href="#5-str-和-repr" class="headerlink" title="5. str 和 repr"></a>5. <strong>str</strong> 和 <strong>repr</strong></h3><p>我们都知道在python里面，list是一种数据类型，而且也是一个类。当我们以list()来创建一个序列时，我们也就创建了一个List对象。如上面的lst，知道了lst是List类型的对象后，我们print(lst)时，为什么没有直接打印出对象的内存地址，而是直接打印出给对象赋的值呢？其实，这一切是因为在list类的内部，实现了<strong>str</strong>功能</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Foo:</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        self.name = name</span><br><span class="line">    def __str__(self):</span><br><span class="line">        return <span class="string">'我执行了'</span></span><br><span class="line"></span><br><span class="line">f = Foo(<span class="string">'xiaohua'</span>)</span><br><span class="line">print(f)</span><br><span class="line"></span><br><span class="line">#######输出结果############</span><br><span class="line">我执行了</span><br></pre></td></tr></table></figure>
+
+<p>我们可以通过定制<strong>str</strong>方法来实现打印别的信息</p>
+<p><strong>str</strong>和<strong>repr</strong>必须return 字符串<br>当打印一个对象的时候，如果实现了str，打印<strong>str</strong>中的返回值，当<strong>str</strong>没有被实现的时候，就会调用<strong>repr</strong>方法（即<strong>str</strong>和<strong>repr</strong>同时存在时，会执行str，不会执行repr）<br>但是当你用字符串格式化的时候 %s和%r会分别去调用<strong>str</strong>和<strong>repr</strong></p>
+<p>不管是在字符串格式化的时候还是在打印对象的时候，repr方法都可以作为str方法的替补<br>但反之不行</p>
+<h3 id="7-new-和-del"><a href="#7-new-和-del" class="headerlink" title="7. new 和 del"></a>7. <strong>new</strong> 和 <strong>del</strong></h3><p><strong>new</strong>:创建对象时被调用，比<strong>init</strong>先执行</p>
+<p>有以下要注意的几点:</p>
+<ul>
+<li><strong>new</strong>至少要有一个参数cls，代表要实例化的类，此参数在实例化时由Python解释器自动提供</li>
+<li><strong>new</strong>必须要有返回值，返回实例化出来的实例，这点在自己实现<strong>new</strong>时要特别注意，可以return父类<strong>new</strong>出来的实例，或者直接是object的<strong>new</strong>出来的实例</li>
+<li><strong>init</strong>有一个参数self，就是这个<strong>new</strong>返回的实例，<strong>init</strong>在<strong>new</strong>的基础上可以完成一些其它初始化的动作，<strong>init</strong>不需要返回值</li>
+</ul>
+<p><strong>del</strong>：在对象被删除或者程序执行完毕后，被调用</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 以下代码执行完毕后，自动执行del</span><br><span class="line"><span class="keyword">class</span> B:</span><br><span class="line">    def __del__(self):</span><br><span class="line">        print(<span class="string">'我执行了'</span>)</span><br><span class="line">b = B()</span><br><span class="line"></span><br><span class="line">######输出结果#########</span><br><span class="line">我执行了</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#显式调用del来删除对象时，触发__del__执行</span></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__del__</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">'我执行了'</span>)</span><br><span class="line">b = B()</span><br><span class="line"><span class="keyword">del</span> b <span class="comment"># 触发__del__执行</span></span><br><span class="line">time.sleep(<span class="number">5</span>)</span><br><span class="line">print(<span class="string">'主程序结果'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">###输出结果####</span></span><br><span class="line">我执行了</span><br><span class="line"><span class="comment">#等待5秒</span></span><br><span class="line">主程序结果</span><br></pre></td></tr></table></figure>
+
+<h3 id="8-item系列"><a href="#8-item系列" class="headerlink" title="8. item系列"></a>8. item系列</h3><p> <strong>getitem</strong>_<em>setitem___<em>delitem</em></em></p>
+<p>我们在列表中学过这种取元素的方式。比如说lst = [1,2,3,4],取第一个元素 lst[0],又或者在字典中dd ={‘name’:’xiaohua’} 取元素dd[‘name’]。实际上，这种取元素的方式，与<strong>getitem</strong>,<strong>setitem</strong>,<strong>delitem</strong>三个函数有关。<br>用法如下:</p>
+<ul>
+<li><strong>getitem</strong>：当我们想要按照 obj[attr]方式调用对象的属性时，触发这个函数的执行</li>
+<li><strong>setitem</strong>：当我以f[‘name’] = ‘xiaohua’ 方式修改对象属性值的时候，会触发该函数的执行。</li>
+<li><strong>delitem</strong>：当以del f[‘name’] 方式删除对象的属性值时，会触发這个函数的执行</li>
+</ul>
+<h3 id="8-call和len"><a href="#8-call和len" class="headerlink" title="8. call和len"></a>8. <strong>call</strong>和<strong>len</strong></h3><p>对象后面加括号，触发执行<strong>call</strong>。</p>
+<p>　　注：构造方法的执行是由创建对象触发的，即：对象 = 类名() ；而对于 <strong>call</strong> 方法的执行是由对象后加括号触发的，即：对象() 或者 类()() </p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(<span class="keyword">self</span>)</span></span><span class="symbol">:</span></span><br><span class="line">        pass</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(<span class="keyword">self</span>, *args, **kwargs)</span></span><span class="symbol">:</span></span><br><span class="line"></span><br><span class="line">        print(<span class="string">'__call__'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">obj = Foo() <span class="comment"># 执行 __init__</span></span><br><span class="line">obj()       <span class="comment"># 执行 __call__   Foo()()等价于obj()</span></span><br></pre></td></tr></table></figure>
+
+<p>而<strong>len</strong>的用法看这个例子:</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(<span class="keyword">self</span>)</span></span><span class="symbol">:</span></span><br><span class="line">        <span class="keyword">self</span>.a = <span class="number">1</span></span><br><span class="line">        <span class="keyword">self</span>.b = <span class="number">2</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span><span class="params">(<span class="keyword">self</span>)</span></span><span class="symbol">:</span></span><br><span class="line">        <span class="keyword">return</span> len(<span class="keyword">self</span>.__dict_<span class="number">_</span>)</span><br><span class="line">obj = A()</span><br><span class="line">print(len(obj))</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/01/go中goroutines与channels/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -571,10 +769,10 @@
 <figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings.<span class="built_in">Repeat</span>(s, <span class="built_in">count</span> <span class="built_in">int</span>) string</span><br></pre></td></tr></table></figure>
 
 <p>ToLower 将字符串中的 Unicode 字符全部转换为相应的小写字符：</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings.ToLower(s) <span class="built_in">string</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings.ToLower(s) <span class="built_in">string</span></span><br></pre></td></tr></table></figure>
 
 <p>ToUpper 将字符串中的 Unicode 字符全部转换为相应的大写字符：</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings.ToUpper(s) <span class="built_in">string</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings.ToUpper(s) <span class="built_in">string</span></span><br></pre></td></tr></table></figure>
 
 <p> strings.TrimSpace(s) 来剔除字符串开头和结尾的空白符号；如果你想要剔除指定字符，则可以使用 strings.Trim(s, “cut”) 来将开头和结尾的 cut 去除掉。该函数的第二个参数可以包含任何字符，如果你只想剔除开头或者结尾的字符串，则可以使用 TrimLeft 或者 TrimRight 来实现。</p>
 <p>strings.Fields(s) 将会利用 1 个或多个空白符号来作为动态长度的分隔符将字符串分割成若干小块，并返回一个 slice，如果字符串只包含空白符号，则返回一个长度为 0 的 slice。</p>
@@ -1328,7 +1526,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1339,7 +1537,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
