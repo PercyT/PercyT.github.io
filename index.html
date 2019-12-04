@@ -262,6 +262,158 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/04/Python中传参的理解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Percy">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/author.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PercyT’s blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/12/04/Python中传参的理解/" itemprop="url">Python中传参的理解</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-04T21:54:23+08:00">
+                2019-12-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+Python函数中，参数是传值还是传引用。因为最近在刷算法题的时候遇到了这样一个问题，传入了一个链表的头节点Head作为参数，然后在函数中通过head遍历链表，我在想要不要先给head赋值给一个新建的变量，毕竟我不希望head的值发生变化。在亲手试验了后发现，不需要给head赋一个新建变量，最后在函数的外部，head的值一直保持不变，也就是在函数的内部改变head的值，对对象head本身没有影响，也就是head是传入了一个引用。所以当我想把当前头节点的值变为None，对当前函数传入的head进
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/12/04/Python中传参的理解/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/25/剑指offer总结-一/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -355,55 +507,19 @@
       
         
           
-            <hr>
-<h4 id="最近开始刷-lt-lt-剑指offer-gt-gt-这本书了，因为以前学的数据结构都有点忘了，准备开始恶补一下算法和数据结构，计划是边刷剑指offer边看以前上数据结构的书，两边一起做，等刷完后再去刷leetcode。打算每周一更把刷过的一些题目记录一下。"><a href="#最近开始刷-lt-lt-剑指offer-gt-gt-这本书了，因为以前学的数据结构都有点忘了，准备开始恶补一下算法和数据结构，计划是边刷剑指offer边看以前上数据结构的书，两边一起做，等刷完后再去刷leetcode。打算每周一更把刷过的一些题目记录一下。" class="headerlink" title="最近开始刷&lt;&lt;剑指offer&gt;&gt;这本书了，因为以前学的数据结构都有点忘了，准备开始恶补一下算法和数据结构，计划是边刷剑指offer边看以前上数据结构的书，两边一起做，等刷完后再去刷leetcode。打算每周一更把刷过的一些题目记录一下。"></a>最近开始刷<strong>&lt;&lt;剑指offer&gt;&gt;</strong>这本书了，因为以前学的数据结构都有点忘了，准备开始恶补一下算法和数据结构，计划是边刷剑指offer边看以前上数据结构的书，两边一起做，等刷完后再去刷leetcode。打算每周一更把刷过的一些题目记录一下。</h4><p>（以下代码基本都用python来实现，后期考虑用go重新实现一下）</p>
-<h3 id="1-实现Singleton模式"><a href="#1-实现Singleton模式" class="headerlink" title="1. 实现Singleton模式"></a>1. 实现Singleton模式</h3><ul>
-<li>题目: 设计一个类，实现他的单例模式</li>
-<li>我首先想到的就是python里面通过调用模块本身就是单例化的，比如在一个py文件里面定义一个类，然后在这个文件里面创建这个类的实例，然后再从外部调用这个类，然后查看别人的解决方案，才知道了可以通过更改<strong>new</strong>这个函数来进行处理单例模式，这个函数的是在<strong>init</strong>函数之前执行的，返回一个cls实例，也就是<strong>init</strong>函数里面的self。</li>
-<li>代码如下，下面的hasattr函数是用于判断类是否含该属性或方法，如果没有就继承父类方法，返回一个实例<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Singleton</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__new__</span><span class="params">(cls, *args, **kwargs)</span></span><span class="symbol">:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> hasattr(cls, <span class="string">'_instance'</span>)<span class="symbol">:</span></span><br><span class="line">            cls._instance = <span class="keyword">super</span>(Singleton, cls).__new_<span class="number">_</span>(cls)</span><br><span class="line">        <span class="keyword">return</span> cls._instance</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(<span class="keyword">self</span>, name)</span></span><span class="symbol">:</span></span><br><span class="line">        <span class="keyword">self</span>.name = name</span><br><span class="line"></span><br><span class="line">s1 = Singleton(<span class="string">'first'</span>)</span><br><span class="line">s2= Singleton(<span class="string">'last'</span>)</span><br><span class="line">print(s1 == s2)</span><br><span class="line"><span class="meta">&gt;&gt;</span> True</span><br><span class="line">print(s1.name)</span><br><span class="line"><span class="meta">&gt;&gt;</span> last</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h3 id="2-数组中重复的数字"><a href="#2-数组中重复的数字" class="headerlink" title="2. 数组中重复的数字"></a>2. 数组中重复的数字</h3><ul>
-<li><p>题目: 在一个长度为n的数组里所有数字都在0-n-1的范围内，数组中有某些数字是重复的，但不知道有几个数字重复了。</p>
-</li>
-<li><p>解决问题的关键在于数字的下标要和数字本身对齐，进行遍历，如果第一个数不是0，就和第一个数数值的下标的数进行互换，这样能确保后面那个数的下标和数值对应，当出现对换的那个数的下标等于其数值时，说明有重复发生</p>
-</li>
-<li><p>代码如下</p>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">def duplicate(<span class="built_in">num</span>):</span><br><span class="line">    <span class="keyword">for</span> i,v <span class="keyword">in</span> enumerate(<span class="built_in">num</span>): # 关键在于数字如果是i那么他的数组下标一定是i</span><br><span class="line">        <span class="keyword">while</span> <span class="built_in">num</span>[i] != i:</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">num</span>[v] == v:</span><br><span class="line">                <span class="keyword">return</span> True</span><br><span class="line">            <span class="built_in">num</span>[i],<span class="built_in">num</span>[v] = <span class="built_in">num</span>[v],<span class="built_in">num</span>[i] # 将两个交换，使得<span class="built_in">num</span>[v]肯定满足数组下标等于数字 </span><br><span class="line">    <span class="keyword">return</span> False</span><br><span class="line"></span><br><span class="line"><span class="built_in">num</span> = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>]</span><br><span class="line"><span class="built_in">print</span>(duplicate(<span class="built_in">num</span>))</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>题目变型:不修改数组找出重复的数字，在一个长度为n+1的数组里的所有数字都在1~n的范围内，所以数组中至少有一个数字是重复的，请找出数组中任意一个重复的数字，但不改变数组</p>
-</li>
-<li><p>如果能创建一个辅助的数组，就可以把数组复制到辅助数组，思路就是将1到n的数字从中间的数字分成两半，统计出现的次数，然后统计这几个数字在数组中出现的次数是不是都是一次，如果不是说明，这里面有重复数字，继续二分递归，直到当只剩一个数字时，其数量大于1，然后返回这个数字</p>
-</li>
-<li><p>代码如下</p>
-</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">def countRange(num, length, <span class="keyword">start</span>, <span class="keyword">end</span>):  <span class="comment"># 找出在start到end区间的</span></span><br><span class="line">    <span class="keyword">count</span> = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="keyword">num</span>:</span><br><span class="line">        <span class="keyword">if</span> i&gt;=<span class="keyword">start</span> <span class="keyword">and</span> i&lt;=<span class="keyword">end</span>:</span><br><span class="line">            <span class="keyword">count</span> += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">count</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> getDuplication(<span class="keyword">num</span>, <span class="keyword">length</span>):</span><br><span class="line">    <span class="keyword">start</span> = <span class="number">1</span></span><br><span class="line">    <span class="keyword">end</span> = <span class="keyword">length</span><span class="number">-1</span></span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">end</span>&gt;=<span class="keyword">start</span>:</span><br><span class="line">        middle = (<span class="keyword">start</span>+<span class="keyword">end</span>)//<span class="number">2</span></span><br><span class="line">        <span class="keyword">count</span> = countRange(<span class="keyword">num</span>, <span class="keyword">length</span>, <span class="keyword">start</span>, middle)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">start</span> == <span class="keyword">end</span>:</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">count</span>&gt;<span class="number">1</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">start</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                break</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">count</span>&gt;(middle-<span class="keyword">start</span>+<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">end</span> = middle</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">start</span> = middle+<span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">num</span> = [<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">7</span>]</span><br><span class="line">print(getDuplication(<span class="keyword">num</span>,<span class="keyword">len</span>(<span class="keyword">num</span>)))</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-二维数组中的查找"><a href="#3-二维数组中的查找" class="headerlink" title="3. 二维数组中的查找"></a>3. 二维数组中的查找</h3><ul>
-<li>题目：在一个二维数组中，每一行都按从左到右递增的顺序排序，每一列都按从上到下递增的顺序排序，输入一个这样的二维数组和整数，判断数组中是否有该整数</li>
-<li>分析得从右上角开始查找，如果该数字等于要查找的数字，则查找过程结束，如果该数字大于要查找的数字，则剔除这个数字所在的列，如果该数字小于要查找的数字，则剔除这个数字所在的行。</li>
-<li>代码如下：</li>
-</ul>
-<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">def find(<span class="built_in">grid</span>, <span class="built_in">num</span>)-&gt;bool:</span><br><span class="line">    <span class="built_in">row</span> = len(<span class="built_in">grid</span>)</span><br><span class="line">    column = len(<span class="built_in">grid</span>[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    j = column-<span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> i&lt;<span class="built_in">row</span> <span class="keyword">and</span> j&gt;=<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">grid</span>[i][j]==<span class="built_in">num</span>:</span><br><span class="line">            <span class="built_in">return</span> True</span><br><span class="line">        elif <span class="built_in">grid</span>[i][j]&lt;<span class="built_in">num</span>:</span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            j -= <span class="number">1</span>  </span><br><span class="line">    <span class="built_in">return</span> False</span><br><span class="line"></span><br><span class="line"><span class="built_in">grid</span> = [[<span class="number">1</span>, <span class="number">2</span>, <span class="number">8</span>, <span class="number">9</span>],</span><br><span class="line">       [<span class="number">2</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">12</span>],</span><br><span class="line">       [<span class="number">4</span>, <span class="number">7</span>, <span class="number">10</span>, <span class="number">13</span>],</span><br><span class="line">       [<span class="number">6</span>, <span class="number">8</span>, <span class="number">11</span>, <span class="number">15</span>]]</span><br><span class="line"></span><br><span class="line">number = <span class="number">7</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == '__main__':</span><br><span class="line">    <span class="built_in">print</span>(find(<span class="built_in">grid</span>,number))</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-替换空格"><a href="#4-替换空格" class="headerlink" title="4. 替换空格"></a>4. 替换空格</h3><ul>
-<li>题目：实现一个函数，把字符串中每个空格替换成’%20’</li>
-<li>第一种方法就是用Python的map函数，迭代字符串，将字符串中的空格替换为%20。第二种方法就是先根据空格的个数扩充字符串，用第一个指针指向字符串现有值的尾部，第二个指针指向字符串的尾部，然后从后往前遍历，将第一个指针的值赋给第二个指针指向的值，当遇到空格时，第二个指针分别赋值% 2 0，然后指针往前移动，直到第一个指针遍历到字符串的头部停止。</li>
-<li>代码如下：</li>
-</ul>
-<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">def replaceBlackpy(s:<span class="built_in">str</span>)-&gt;<span class="built_in">str</span>:</span><br><span class="line">    s = list(s)</span><br><span class="line"></span><br><span class="line">    def replace(<span class="built_in">char</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">char</span> == <span class="string">' '</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">'%20'</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">char</span></span><br><span class="line"></span><br><span class="line">    s = list(<span class="built_in">map</span>(replace,s))</span><br><span class="line">    s = <span class="string">''</span>.<span class="built_in">join</span>(s)</span><br><span class="line">    <span class="keyword">return</span> s</span><br><span class="line"></span><br><span class="line">def replaceBlack(s:<span class="built_in">str</span>)-&gt;<span class="built_in">str</span>:</span><br><span class="line">    blackNum = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i in s:</span><br><span class="line">        <span class="keyword">if</span> i == <span class="string">' '</span>:</span><br><span class="line">            blackNum += <span class="number">1</span></span><br><span class="line">    first = len(s)<span class="number">-1</span></span><br><span class="line">    <span class="built_in">second</span> = len(s)+<span class="number">2</span>*blackNum<span class="number">-1</span></span><br><span class="line">    s = s+<span class="string">' '</span>*blackNum*<span class="number">2</span></span><br><span class="line">    s = list(s)</span><br><span class="line">    <span class="keyword">while</span> first&gt;=<span class="number">0</span> and first&lt;<span class="built_in">second</span> :</span><br><span class="line">        <span class="keyword">if</span> s[first]==<span class="string">' '</span>:</span><br><span class="line">            s[<span class="built_in">second</span>] = <span class="string">'0'</span>; <span class="built_in">second</span> -= <span class="number">1</span>;</span><br><span class="line">            s[<span class="built_in">second</span>] = <span class="string">'2'</span>; <span class="built_in">second</span> -= <span class="number">1</span>;</span><br><span class="line">            s[<span class="built_in">second</span>] = <span class="string">'%'</span>; <span class="built_in">second</span> -= <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            s[<span class="built_in">second</span>] = s[first]; <span class="built_in">second</span> -= <span class="number">1</span>;</span><br><span class="line">        first -= <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">''</span>.<span class="built_in">join</span>(s)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            </span><br><span class="line">s = <span class="string">"    We are     happy "</span></span><br><span class="line"><span class="built_in">print</span>(replaceBlackpy(s))</span><br><span class="line"><span class="built_in">print</span>(replaceBlack(s))</span><br></pre></td></tr></table></figure>
-
-<h3 id="5-从尾到头打印链表"><a href="#5-从尾到头打印链表" class="headerlink" title="5. 从尾到头打印链表"></a>5. 从尾到头打印链表</h3><ul>
-<li>题目：输入一个链表的头节点，从尾到头反过来打印出每个节点的值。</li>
-<li>遍历链表然后将值放入栈中，再依次输出，同时既然使用到栈，我们也可以用递归的方式来解决，这个题目让我知道了一般用栈实现的题目也可以用递归来实现，同时学习了单链表在python中的实现。</li>
-<li>代码如下：</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">node</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,item)</span>:</span></span><br><span class="line">        self.item = item</span><br><span class="line">        self.next = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">createLinkList</span><span class="params">(l:list)</span>-&gt;node:</span></span><br><span class="line">    <span class="string">"""创建一个链表"""</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> l:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    head = node(l[<span class="number">0</span>])</span><br><span class="line">    p = head</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> l[<span class="number">1</span>:]:</span><br><span class="line">        p.next = node(i)</span><br><span class="line">        p = p.next</span><br><span class="line">    <span class="keyword">return</span> head</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">reversePrintLinkList</span><span class="params">(head)</span>:</span></span><br><span class="line">    <span class="string">"""使用栈来存储遍历链表而得的值"""</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> head:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    stack = []</span><br><span class="line">    <span class="keyword">while</span> head:</span><br><span class="line">        stack.append(head.item)</span><br><span class="line">        head = head.next</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> stack[::<span class="number">-1</span>]:</span><br><span class="line">        print(i)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">reversePrintLinkList2</span><span class="params">(head)</span>:</span></span><br><span class="line">    <span class="string">"""使用递归来实现，递归在本质上就是一个栈结构"""</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> head:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">if</span> head.next:</span><br><span class="line">        reversePrintLinkList2(head.next)    </span><br><span class="line">    print(head.item)    </span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    l = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">    head = createLinkList(l)</span><br><span class="line">    reversePrintLinkList(head)</span><br><span class="line">    reversePrintLinkList2(head)</span><br></pre></td></tr></table></figure>
-
-
           
+最近开始刷&lt;&lt;剑指offer&gt;&gt;这本书了，因为以前学的数据结构都有点忘了，准备开始恶补一下算法和数据结构，计划是边刷剑指offer边看以前上数据结构的书，两边一起做，等刷完后再去刷leetcode。打算每周一更把刷过的一些题目记录一下。（以下代码基本都用python来实现，后期考虑用go重新实现一下）
+1. 实现Singleton模式
+题目: 设计一个类，实现他的单例模式
+我首先想到的就是python里面通过调用模块本身就是单例化的，比如在一个py文件里面定义一个类，然
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/11/25/剑指offer总结-一/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -546,62 +662,19 @@
       
         
           
-            <h4 id="最近在用python的时候遇到了一些之前没有遇到过的一些面向对象的一些方法，查了一些资料系统的了解了一下，其实并不复杂"><a href="#最近在用python的时候遇到了一些之前没有遇到过的一些面向对象的一些方法，查了一些资料系统的了解了一下，其实并不复杂" class="headerlink" title="最近在用python的时候遇到了一些之前没有遇到过的一些面向对象的一些方法，查了一些资料系统的了解了一下，其实并不复杂"></a>最近在用python的时候遇到了一些之前没有遇到过的一些面向对象的一些方法，查了一些资料系统的了解了一下，其实并不复杂</h4><h3 id="1-属性"><a href="#1-属性" class="headerlink" title="1.属性"></a>1.属性</h3><p>这里要介绍的属性其实和<strong>init</strong>函数里面定义的属性相似，适用于一些属性需要通过其他的一些属性经过复杂的计算而得出，这些属性我们通过一个方法来进行定义</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@property</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">pay</span></span>(<span class="keyword">self</span>)<span class="symbol">:</span></span><br><span class="line">    <span class="keyword">return</span> salary - <span class="keyword">use</span></span><br></pre></td></tr></table></figure>
+          最近在用python的时候遇到了一些之前没有遇到过的一些面向对象的一些方法，查了一些资料系统的了解了一下，其实并不复杂1.属性这里要介绍的属性其实和init函数里面定义的属性相似，适用于一些属性需要通过其他的一些属性经过复杂的计算而得出，这些属性我们通过一个方法来进行定义
+123@propertydef pay(self):    return salary - use
 
-<p>这个方法就是普通的方法，但重点在于加了property的装饰器,在我们调用的时候直接 <strong>类名.pay</strong> 就可以了</p>
-<h3 id="2-staticmethod的classmethod"><a href="#2-staticmethod的classmethod" class="headerlink" title="2.staticmethod的classmethod"></a>2.staticmethod的classmethod</h3><p>staticmethod  静态方法： 让类里的方法，直接被类调用，就像正常的函数一样</p>
-<p>classmethod  类方法： 默认参数cls，可以直接用类名调用，与类属性交互</p>
-<p>所以在类中方法有三种:</p>
-<ul>
-<li>普通方法: 由对象调用；至少一个self参数；执行普通方法时，自动将调用该方法的对象赋值给self；</li>
-<li>静态方法: 由类调用； 至少一个cls参数；执行类方法时，自动将调用该方法的类复制给cls</li>
-<li>类方法: 由类来调用，无默认参数</li>
-</ul>
-<h3 id="3-isinstance和issubclass"><a href="#3-isinstance和issubclass" class="headerlink" title="3.isinstance和issubclass"></a>3.isinstance和issubclass</h3><p>isinstance(obj,cls)检查是否obj是否是类 cls 的对象</p>
-<p>issubclass(sub, super)检查sub类是否是 super 类的派生类 </p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class Foo:</span><br><span class="line">    pass</span><br><span class="line">class Son(Foo):</span><br><span class="line">    pass</span><br><span class="line">s=Son()</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(isinstance(s,Son)</span></span>) #True</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(isinstance(s,Foo)</span></span>) #True</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(type(s)</span></span> is Son) #False</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(type(s)</span></span> is Foo)  #False</span><br><span class="line">#isinstance和type的区别在于：当存在继承时，isinstance在判断时比较模糊，type则不会存在这个问题</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(issubclass(Son,Foo)</span></span>) #True</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(issubclass(Son,object)</span></span>) #True</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(issubclass(Foo,object)</span></span>) #True</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(issubclass(int,object)</span></span>) #True</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-反射"><a href="#4-反射" class="headerlink" title="4.反射"></a>4.反射</h3><p>反射的概念: 通过字符串的形式操作对象相关的属性</p>
-<p>下列方法适用于类和对象（一切皆对象，类本身也是一个对象）</p>
-<p>常用：hasattr、getattr</p>
-<p>不常用：setattr、delattr</p>
-<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Foo:</span><br><span class="line">    f = <span class="string">'类的静态变量'</span></span><br><span class="line">    def __init__(self,name,age):</span><br><span class="line">        self.name=name</span><br><span class="line">        self.age=age</span><br><span class="line"></span><br><span class="line">    def say_hi(self):</span><br><span class="line">        print(<span class="string">'hi,%s'</span>%self.name)</span><br><span class="line"></span><br><span class="line">obj=Foo(<span class="string">'egon'</span>,<span class="number">73</span>)</span><br><span class="line"></span><br><span class="line">#检测是否含有某属性或方法</span><br><span class="line">print(hasattr(obj,<span class="string">'name'</span>))   #<span class="literal">True</span></span><br><span class="line">print(hasattr(obj,<span class="string">'say_hi'</span>))  #<span class="literal">True</span></span><br><span class="line"></span><br><span class="line">#获取属性或方法</span><br><span class="line">n=getattr(obj,<span class="string">'name'</span>)</span><br><span class="line">print(n)    #egon</span><br><span class="line">func=getattr(obj,<span class="string">'say_hi'</span>)</span><br><span class="line">func()     # hi,egon</span><br><span class="line"></span><br><span class="line"># print(getattr(obj,<span class="string">'aaaaaaaa'</span>,<span class="string">'不存在啊'</span>)) #报错</span><br><span class="line"></span><br><span class="line">#设置属性</span><br><span class="line">setattr(obj,<span class="string">'sb'</span>,<span class="literal">True</span>)</span><br><span class="line">setattr(obj,<span class="string">'show_name'</span>,lambda self:self.name+<span class="string">'sb'</span>)</span><br><span class="line">print(obj.__dict__)   #&#123;<span class="string">'name'</span>: <span class="string">'egon'</span>, <span class="string">'age'</span>: <span class="number">73</span>, <span class="string">'sb'</span>: <span class="literal">True</span>, <span class="string">'show_name'</span>: &lt;function &lt;lambda&gt; at <span class="number">0x0097C5D0</span>&gt;&#125;</span><br><span class="line">print(obj.show_name(obj))   #egonsb    </span><br><span class="line">#用setattr为对象设置方法时：需要在（）内手动传入绑定的对象，不能直接obj.show_name()，会报错</span><br><span class="line"></span><br><span class="line">#删除属性</span><br><span class="line">delattr(obj,<span class="string">'age'</span>)</span><br><span class="line">delattr(obj,<span class="string">'show_name'</span>)</span><br><span class="line"># delattr(obj,<span class="string">'show_name111'</span>)#不存在,则报错</span><br><span class="line"></span><br><span class="line">print(obj.__dict__)   #&#123;<span class="string">'name'</span>: <span class="string">'egon'</span>, <span class="string">'sb'</span>: <span class="literal">True</span>&#125;</span><br><span class="line"></span><br><span class="line">四中方法的使用演示</span><br></pre></td></tr></table></figure>
-
-<h3 id="5-str-和-repr"><a href="#5-str-和-repr" class="headerlink" title="5. str 和 repr"></a>5. <strong>str</strong> 和 <strong>repr</strong></h3><p>我们都知道在python里面，list是一种数据类型，而且也是一个类。当我们以list()来创建一个序列时，我们也就创建了一个List对象。如上面的lst，知道了lst是List类型的对象后，我们print(lst)时，为什么没有直接打印出对象的内存地址，而是直接打印出给对象赋的值呢？其实，这一切是因为在list类的内部，实现了<strong>str</strong>功能</p>
-<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Foo:</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        self.name = name</span><br><span class="line">    def __str__(self):</span><br><span class="line">        return <span class="string">'我执行了'</span></span><br><span class="line"></span><br><span class="line">f = Foo(<span class="string">'xiaohua'</span>)</span><br><span class="line">print(f)</span><br><span class="line"></span><br><span class="line">#######输出结果############</span><br><span class="line">我执行了</span><br></pre></td></tr></table></figure>
-
-<p>我们可以通过定制<strong>str</strong>方法来实现打印别的信息</p>
-<p><strong>str</strong>和<strong>repr</strong>必须return 字符串<br>当打印一个对象的时候，如果实现了str，打印<strong>str</strong>中的返回值，当<strong>str</strong>没有被实现的时候，就会调用<strong>repr</strong>方法（即<strong>str</strong>和<strong>repr</strong>同时存在时，会执行str，不会执行repr）<br>但是当你用字符串格式化的时候 %s和%r会分别去调用<strong>str</strong>和<strong>repr</strong></p>
-<p>不管是在字符串格式化的时候还是在打印对象的时候，repr方法都可以作为str方法的替补<br>但反之不行</p>
-<h3 id="7-new-和-del"><a href="#7-new-和-del" class="headerlink" title="7. new 和 del"></a>7. <strong>new</strong> 和 <strong>del</strong></h3><p><strong>new</strong>:创建对象时被调用，比<strong>init</strong>先执行</p>
-<p>有以下要注意的几点:</p>
-<ul>
-<li><strong>new</strong>至少要有一个参数cls，代表要实例化的类，此参数在实例化时由Python解释器自动提供</li>
-<li><strong>new</strong>必须要有返回值，返回实例化出来的实例，这点在自己实现<strong>new</strong>时要特别注意，可以return父类<strong>new</strong>出来的实例，或者直接是object的<strong>new</strong>出来的实例</li>
-<li><strong>init</strong>有一个参数self，就是这个<strong>new</strong>返回的实例，<strong>init</strong>在<strong>new</strong>的基础上可以完成一些其它初始化的动作，<strong>init</strong>不需要返回值</li>
-</ul>
-<p><strong>del</strong>：在对象被删除或者程序执行完毕后，被调用</p>
-<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 以下代码执行完毕后，自动执行del</span><br><span class="line"><span class="keyword">class</span> B:</span><br><span class="line">    def __del__(self):</span><br><span class="line">        print(<span class="string">'我执行了'</span>)</span><br><span class="line">b = B()</span><br><span class="line"></span><br><span class="line">######输出结果#########</span><br><span class="line">我执行了</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#显式调用del来删除对象时，触发__del__执行</span></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__del__</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">'我执行了'</span>)</span><br><span class="line">b = B()</span><br><span class="line"><span class="keyword">del</span> b <span class="comment"># 触发__del__执行</span></span><br><span class="line">time.sleep(<span class="number">5</span>)</span><br><span class="line">print(<span class="string">'主程序结果'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">###输出结果####</span></span><br><span class="line">我执行了</span><br><span class="line"><span class="comment">#等待5秒</span></span><br><span class="line">主程序结果</span><br></pre></td></tr></table></figure>
-
-<h3 id="8-item系列"><a href="#8-item系列" class="headerlink" title="8. item系列"></a>8. item系列</h3><p> <strong>getitem</strong>_<em>setitem___<em>delitem</em></em></p>
-<p>我们在列表中学过这种取元素的方式。比如说lst = [1,2,3,4],取第一个元素 lst[0],又或者在字典中dd ={‘name’:’xiaohua’} 取元素dd[‘name’]。实际上，这种取元素的方式，与<strong>getitem</strong>,<strong>setitem</strong>,<strong>delitem</strong>三个函数有关。<br>用法如下:</p>
-<ul>
-<li><strong>getitem</strong>：当我们想要按照 obj[attr]方式调用对象的属性时，触发这个函数的执行</li>
-<li><strong>setitem</strong>：当我以f[‘name’] = ‘xiaohua’ 方式修改对象属性值的时候，会触发该函数的执行。</li>
-<li><strong>delitem</strong>：当以del f[‘name’] 方式删除对象的属性值时，会触发這个函数的执行</li>
-</ul>
-<h3 id="8-call和len"><a href="#8-call和len" class="headerlink" title="8. call和len"></a>8. <strong>call</strong>和<strong>len</strong></h3><p>对象后面加括号，触发执行<strong>call</strong>。</p>
-<p>　　注：构造方法的执行是由创建对象触发的，即：对象 = 类名() ；而对于 <strong>call</strong> 方法的执行是由对象后加括号触发的，即：对象() 或者 类()() </p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(<span class="keyword">self</span>)</span></span><span class="symbol">:</span></span><br><span class="line">        pass</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(<span class="keyword">self</span>, *args, **kwargs)</span></span><span class="symbol">:</span></span><br><span class="line"></span><br><span class="line">        print(<span class="string">'__call__'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">obj = Foo() <span class="comment"># 执行 __init__</span></span><br><span class="line">obj()       <span class="comment"># 执行 __call__   Foo()()等价于obj()</span></span><br></pre></td></tr></table></figure>
-
-<p>而<strong>len</strong>的用法看这个例子:</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(<span class="keyword">self</span>)</span></span><span class="symbol">:</span></span><br><span class="line">        <span class="keyword">self</span>.a = <span class="number">1</span></span><br><span class="line">        <span class="keyword">self</span>.b = <span class="number">2</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span><span class="params">(<span class="keyword">self</span>)</span></span><span class="symbol">:</span></span><br><span class="line">        <span class="keyword">return</span> len(<span class="keyword">self</span>.__dict_<span class="number">_</span>)</span><br><span class="line">obj = A()</span><br><span class="line">print(len(obj))</span><br></pre></td></tr></table></figure>
-
-
-          
+这个方法就是普通的方法，但重点在于加了property的装饰器,在我们调用的时候直接 类名.pay 就可以了
+2.stati
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/11/14/python面向对象高级特性/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -744,50 +817,17 @@
       
         
           
-            <h3 id="学习go语言以来，发现goroutines和channels真的很神奇，因为本学期也在学习操作系统，所以学习goroutines和channels并没有想象中那么困难，一些线程和信号量之类的概念都比较熟悉，记录一下学习goroutines和channels的一些心得，先讲一些基本的容易混淆概念，再附上一些我参考理解的代码来表示goroutines和channels"><a href="#学习go语言以来，发现goroutines和channels真的很神奇，因为本学期也在学习操作系统，所以学习goroutines和channels并没有想象中那么困难，一些线程和信号量之类的概念都比较熟悉，记录一下学习goroutines和channels的一些心得，先讲一些基本的容易混淆概念，再附上一些我参考理解的代码来表示goroutines和channels" class="headerlink" title="学习go语言以来，发现goroutines和channels真的很神奇，因为本学期也在学习操作系统，所以学习goroutines和channels并没有想象中那么困难，一些线程和信号量之类的概念都比较熟悉，记录一下学习goroutines和channels的一些心得，先讲一些基本的容易混淆概念，再附上一些我参考理解的代码来表示goroutines和channels"></a>学习go语言以来，发现goroutines和channels真的很神奇，因为本学期也在学习操作系统，所以学习goroutines和channels并没有想象中那么困难，一些线程和信号量之类的概念都比较熟悉，记录一下学习goroutines和channels的一些心得，先讲一些基本的容易混淆概念，再附上一些我参考理解的代码来表示goroutines和channels</h3><h3 id="1-并发和并行"><a href="#1-并发和并行" class="headerlink" title="1.并发和并行"></a>1.并发和并行</h3><ul>
-<li><strong>并发</strong>: 指程序可以在同一个处理器上用多个线程进行处理，但没有在同一时刻在同一处理器上有多个线程一直在运行</li>
-<li><strong>并行</strong>: 指用多处理来处理程序，在某一时刻有多个进程在不同的处理器上运行<h3 id="2-进程与线程"><a href="#2-进程与线程" class="headerlink" title="2.进程与线程"></a>2.进程与线程</h3></li>
-<li><strong>进程</strong>: 进程是可并发执行的程序在某个数据集合上的一次计算活动，也是操作系统进行资源分配和调度的基本单位</li>
-<li><strong>线程</strong>: 线程是程序执行时的最小单位，它是进程的一个执行流，是CPU调度和分派的基本单位，一个进程可以由很多个线程组成，线程间共享进程的所有资源，每个线程有自己的堆栈和局部变量。<h3 id="3-goroutines-协程"><a href="#3-goroutines-协程" class="headerlink" title="3.goroutines 协程"></a>3.goroutines 协程</h3></li>
-</ul>
-<p><strong>那么协程和进程以及线程有什么关系</strong>:协程是轻量的，比线程更轻。它们痕迹非常不明显（使用少量的内存和资源）,协程可以运行在多个操作系统线程之间，也可以运行在线程之内，让你可以很小的内存占用就可以处理大量的任务。由于操作系统线程上的协程时间片，你可以使用少量的操作系统线程就能拥有任意多个提供服务的协程，而且 Go 运行时可以聪明的意识到哪些协程被阻塞了，暂时搁置它们并处理其他协程。</p>
-<p><strong>在go中如何使用协程</strong>：协程是通过使用关键字 go 调用一个函数或者方法来实现的（也可以是匿名或者 lambda 函数）。</p>
-<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">go <span class="function"><span class="keyword">func</span><span class="params">()</span> &#123;</span></span><br><span class="line"></span><br><span class="line">.....</span><br><span class="line"></span><br><span class="line">&#125;()</span><br><span class="line">// 以并发的方式调用匿名函数<span class="function"><span class="keyword">func</span></span></span><br></pre></td></tr></table></figure>
-
-<p>这样会在当前的计算过程中开始一个同时进行的函数，在相同的地址空间中并且分配了独立的栈，而且我们不用担心栈溢出，协程会自动伸缩栈的大小。<br>具体的一些使用go协程的代码放在channels里面展示，一般我们使用协程都会使用channels来进行通信。</p>
-<h3 id="4-通信channel："><a href="#4-通信channel：" class="headerlink" title="4.通信channel："></a>4.通信channel：</h3><p>还记得看书时候一句印象很深刻的话：不要用共享内存来进行通信，要进行通信来共享内存</p>
-<p><strong>channel(通道):</strong>就像一个可以用于发送类型化数据的管道，由其负责协程之间的通信</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ch1 <span class="keyword">chan</span> <span class="keyword">string</span> <span class="comment">//声明一个传递字符串的通道</span></span><br><span class="line">ch1 = <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">string</span>) <span class="comment">//make来进行实例化</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>通道操作符:</strong>   </p>
-<ul>
-<li>流向通道（发送）</li>
-</ul>
-<p>ch &lt;- int1 表示：用通道 ch 发送变量 int1（双目运算符，中缀 = 发送）</p>
-<ul>
-<li>从通道流出（接收）：</li>
-</ul>
-<p>int2 = &lt;- ch 表示：变量 int2 从通道 ch，接收数据（获取新值）；假设 int2已经声明过了，如果没有的话可以写成：int2 := &lt;- ch。</p>
-<p>&lt;- ch 可以单独调用获取通道的（下一个）值，当前值会被丢弃，但是可以用来验证</p>
-<p><strong>通道阻塞：</strong><br>对于同一个通道，发送操作（协程或者函数中的），在接收者准备好之前是阻塞的：如果ch中的数据无人接收，就无法再给通道传入其他数据：新的输入无法在通道非空的情况下传入。所以发送操作会等待 ch 再次变为可用状态：就是通道值被接收时（可以传入变量）。</p>
-<p><strong>信号量模式：</strong><br>学习操作系统的时候了解到信号量机制，是解决进程同步的一个非常有效的方法，在go语言的通道中也可以表示信号量机制。<br>下边的片段阐明：协程通过在通道 ch 中放置一个值来处理结束的信号。main 协程等待 &lt;-ch 直到从中获取到值。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">compute</span><span class="params">(ch <span class="keyword">chan</span> <span class="keyword">int</span>)</span></span>&#123;</span><br><span class="line">    ch &lt;- someComputation() <span class="comment">// when it completes, signal on the channel.</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ch := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>)    <span class="comment">// allocate a channel.</span></span><br><span class="line">    <span class="keyword">go</span> compute(ch)      <span class="comment">// stat something in a goroutines</span></span><br><span class="line">    doSomethingElseForAWhile()</span><br><span class="line">    result := &lt;- ch</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>通道方向：</strong><br>通道类型可以用注解来表示它只发送或者只接收：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> send_only <span class="keyword">chan</span>&lt;- <span class="keyword">int</span>        <span class="comment">// channel can only receive data</span></span><br><span class="line"><span class="keyword">var</span> recv_only &lt;-<span class="keyword">chan</span> <span class="keyword">int</span>        <span class="comment">// channel can only send data</span></span><br></pre></td></tr></table></figure>
-
-<p>只接收的通道（chan&lt;- T）无法关闭，因为关闭通道是发送者用来表示不再给通道发送值了，所以对只接收通道是没有意义的。通道创建的时候都是双向的，但也可以分配有方向的通道变量</p>
-<h3 id="5-select切换协程："><a href="#5-select切换协程：" class="headerlink" title="5.select切换协程："></a>5.select切换协程：</h3><p>select在我看来和switch很相似</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">select &#123;</span><br><span class="line"><span class="keyword">case</span> <span class="string">u:</span>= &lt;- <span class="string">ch1:</span></span><br><span class="line">        ...</span><br><span class="line"><span class="keyword">case</span> <span class="string">v:</span>= &lt;- <span class="string">ch2:</span></span><br><span class="line">        ...</span><br><span class="line">        ...</span><br><span class="line"><span class="string">default:</span> <span class="comment">// no value ready to be received</span></span><br><span class="line">        ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>select 做的就是：选择处理列出的多个通信情况中的一个。</p>
-<ul>
-<li>如果都阻塞了，会等待直到其中一个可以处理</li>
-<li>如果多个可以处理，随机选择一个</li>
-<li>如果没有通道操作可以处理并且写了 default语句，它就会执行：default 永远是可运行的（这就是准备好了，可以执行）。</li>
-</ul>
-
-          
+          学习go语言以来，发现goroutines和channels真的很神奇，因为本学期也在学习操作系统，所以学习goroutines和channels并没有想象中那么困难，一些线程和信号量之类的概念都比较熟悉，记录一下学习goroutines和channels的一些心得，先讲一些基本的容易混淆概念，再附上一些我参考理解的代码来表示goroutines和channels1.并发和并行
+并发: 指程序可以在同一个处理器上用多个线程进行处理，但没有在同一时刻在同一处理器上有多个线程一直在运行
+并行: 指用
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/11/01/go中goroutines与channels/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -930,56 +970,23 @@
       
         
           
-            <hr>
-<h4 id="golang学习过程中接触到了字符串处理，每种语言都有字符串处理的内建函数，golang则是将内建函数放置在string包中，概括了一些常用的string包中的函数"><a href="#golang学习过程中接触到了字符串处理，每种语言都有字符串处理的内建函数，golang则是将内建函数放置在string包中，概括了一些常用的string包中的函数" class="headerlink" title="golang学习过程中接触到了字符串处理，每种语言都有字符串处理的内建函数，golang则是将内建函数放置在string包中，概括了一些常用的string包中的函数"></a>golang学习过程中接触到了字符串处理，每种语言都有字符串处理的内建函数，golang则是将内建函数放置在string包中，概括了一些常用的string包中的函数</h4><p>列举如下：</p>
-<p>HasPrefix:判断字符串 s 是否以 prefix 开头：</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings.HasPrefix(s,<span class="built_in"> prefix </span>string) bool</span><br></pre></td></tr></table></figure>
-
-<p>HasSuffix 判断字符串 s 是否以 suffix 结尾：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings.HasSuffix(s, suffix <span class="built_in">string</span>) <span class="keyword">bool</span></span><br></pre></td></tr></table></figure>
-
-<p>Contains 判断字符串 s 是否包含 substr：</p>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">strings.Contains(s, </span><span class="keyword">substr </span><span class="keyword">string) </span><span class="keyword">bool</span></span><br></pre></td></tr></table></figure>
-
-<p>Index 返回字符串 str 在字符串 s 中的索引（str 的第一个字符的索引），-1 表示字符串 s 不包含字符串 str：</p>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">strings.Index(s, </span><span class="keyword">str </span><span class="keyword">string) </span>int</span><br></pre></td></tr></table></figure>
-
-<p>LastIndex 返回字符串 str 在字符串 s 中最后出现位置的索引（str 的第一个字符的索引），-1 表示字符串 s 不包含字符串 str：</p>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">strings.LastIndex(s, </span><span class="keyword">str </span><span class="keyword">string) </span>int</span><br></pre></td></tr></table></figure>
-
-<p>如果需要查询非 ASCII 编码的字符在父字符串中的位置，建议使用以下函数来对字符进行定位：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings.IndexRune(s <span class="keyword">string</span>, r <span class="keyword">rune</span>|<span class="keyword">int</span> <span class="keyword">int</span>) <span class="keyword">int</span></span><br></pre></td></tr></table></figure>
-
-<p>Replace 用于将字符串 str 中的前 n 个字符串 old 替换为字符串 new，并返回一个新的字符串，如果 n = -1 则替换所有字符串 old 为字符串 new：</p>
-<figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings.<span class="built_in">Replace</span>(str, old, <span class="keyword">new</span>, n) <span class="built_in">string</span></span><br></pre></td></tr></table></figure>
-
-<p>Count 用于计算字符串 str 在字符串 s 中出现的非重叠次数：</p>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">strings.Count(s, </span><span class="keyword">str </span><span class="keyword">string) </span>int</span><br></pre></td></tr></table></figure>
-
-<p>Repeat 用于重复 count 次字符串 s 并返回一个新的字符串：</p>
-<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings.<span class="built_in">Repeat</span>(s, <span class="built_in">count</span> <span class="built_in">int</span>) string</span><br></pre></td></tr></table></figure>
-
-<p>ToLower 将字符串中的 Unicode 字符全部转换为相应的小写字符：</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings.ToLower(s) <span class="built_in">string</span></span><br></pre></td></tr></table></figure>
-
-<p>ToUpper 将字符串中的 Unicode 字符全部转换为相应的大写字符：</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings.ToUpper(s) <span class="built_in">string</span></span><br></pre></td></tr></table></figure>
-
-<p> strings.TrimSpace(s) 来剔除字符串开头和结尾的空白符号；如果你想要剔除指定字符，则可以使用 strings.Trim(s, “cut”) 来将开头和结尾的 cut 去除掉。该函数的第二个参数可以包含任何字符，如果你只想剔除开头或者结尾的字符串，则可以使用 TrimLeft 或者 TrimRight 来实现。</p>
-<p>strings.Fields(s) 将会利用 1 个或多个空白符号来作为动态长度的分隔符将字符串分割成若干小块，并返回一个 slice，如果字符串只包含空白符号，则返回一个长度为 0 的 slice。</p>
-<p>strings.Split(s, sep) 用于自定义分割符号来对指定字符串进行分割，同样返回 slice。</p>
-<p>更多函数详见官方文档 <a href="http://docscn.studygolang.com/pkg/strings/" target="_blank" rel="noopener">string包</a></p>
-<p>字符串相关的类型转换都是通过 strconv 包实现的。<br>针对从数字类型转换到字符串，Go 提供了以下函数：</p>
-<ul>
-<li>strconv.Itoa(i int) string 返回数字 i 所表示的字符串类型的十进制数。</li>
-<li>strconv.FormatFloat(f float64, fmt byte, prec int, bitSize int) string 将 64 位浮点型的数字转换为字符串，其中 fmt 表示格式（其值可以是 ‘b’、’e’、’f’ 或 ‘g’），prec 表示精度，bitSize 则使用 32 表示 float32，用 64 表示 float64。<br>针对从字符串类型转换为数字类型，Go 提供了以下函数：</li>
-<li>strconv.Atoi(s string) (i int, err error) 将字符串转换为 int 型。</li>
-<li>strconv.ParseFloat(s string, bitSize int) (f float64, err error) 将字符串转换为 float64 型。</li>
-</ul>
-<p>利用多返回值的特性，这些函数会返回 2 个值，第 1 个是转换后的结果（如果转换成功），第 2 个是可能出现的错误</p>
-<p>更多函数详见官方文档 <a href="http://docs.studygolang.com/pkg/strconv/" target="_blank" rel="noopener">strconv包</a></p>
-
           
+golang学习过程中接触到了字符串处理，每种语言都有字符串处理的内建函数，golang则是将内建函数放置在string包中，概括了一些常用的string包中的函数列举如下：
+HasPrefix:判断字符串 s 是否以 prefix 开头：
+1strings.HasPrefix(s, prefix string) bool
+
+HasSuffix 判断字符串 s 是否以 suffix 结尾：
+1strings.HasSuffix(s, suffix string) bool
+
+Contains 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/10/19/go中的string包/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1122,41 +1129,24 @@
       
         
           
-            <hr>
-<p><em>使用haystack进行索引的建立以及查询</em></p>
-<h3 id="一-安装插件"><a href="#一-安装插件" class="headerlink" title="一. 安装插件"></a>一. 安装插件</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip <span class="keyword">install</span> whoosh django-haystack jieba</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>haystack是django的开源搜索框架，该框架支持Solr,Elasticsearch,Whoosh,<em>Xapian</em>搜索引擎，不用更改代码，直接切换引擎，减少代码量。</p>
-</li>
-<li><p>搜索引擎使用Whoosh，这是一个由纯Python实现的全文搜索引擎，没有二进制文件等，比较小巧，配置比较简单，当然性能自然略低。</p>
-</li>
-<li><p>中文分词Jieba，由于Whoosh自带的是英文分词，对中文的分词支持不是太好，故用jieba替换whoosh的分词组件。</p>
-<h3 id="2-添加到Settings-py文件的INSTALL-APP中"><a href="#2-添加到Settings-py文件的INSTALL-APP中" class="headerlink" title="2. 添加到Settings.py文件的INSTALL_APP中"></a>2. 添加到Settings.py文件的INSTALL_APP中</h3></li>
-</ul>
-<figure class="highlight sml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">INSTALLED_APPS</span> = [</span><br><span class="line">    <span class="symbol">'django</span>.contrib.admin',</span><br><span class="line">    <span class="symbol">'django</span>.contrib.auth',</span><br><span class="line">    <span class="symbol">'django</span>.contrib.contenttypes',</span><br><span class="line">    <span class="symbol">'django</span>.contrib.sessions',</span><br><span class="line">    <span class="symbol">'django</span>.contrib.messages',</span><br><span class="line">    <span class="symbol">'django</span>.contrib.staticfiles',</span><br><span class="line">    <span class="symbol">'apps</span>.news',</span><br><span class="line">    <span class="symbol">'apps</span>.cms',</span><br><span class="line">    <span class="symbol">'apps</span>.xfzauth',</span><br><span class="line">    <span class="symbol">'apps</span>.ueditor',</span><br><span class="line">    <span class="symbol">'rest_framework'</span>,</span><br><span class="line">    <span class="symbol">'debug_toolbar'</span>,</span><br><span class="line">    <span class="symbol">'apps</span>.course',</span><br><span class="line">    <span class="symbol">'apps</span>.payinfo',</span><br><span class="line">    <span class="symbol">'haystack'</span>,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
-<p>如图将haystack添加到INSTALL_APP中</p>
-<h3 id="3-增加搜索引擎配置"><a href="#3-增加搜索引擎配置" class="headerlink" title="3. 增加搜索引擎配置"></a>3. 增加搜索引擎配置</h3><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">HAYSTACK_CONNECTIONS=&#123;</span><br><span class="line">    <span class="string">'default'</span>:&#123;</span><br><span class="line">        <span class="meta">#设置haystack的搜索引擎</span></span><br><span class="line">        <span class="string">'ENGINE'</span>:<span class="string">'haystack.backends.whoosh_backend.WhooshEngine'</span>,</span><br><span class="line">        <span class="meta">#设置索引文件位置</span></span><br><span class="line">        <span class="string">'PATH'</span>:os.path.<span class="keyword">join</span>(BASE_DIR,<span class="string">'whoosh_index'</span>),</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-新建search-indexes-py文件"><a href="#4-新建search-indexes-py文件" class="headerlink" title="4. 新建search_indexes.py文件"></a>4. 新建search_indexes.py文件</h3><p>如果要针对某个模型做索引，则在该app的目录下面新建一个<strong>search_indexes.py</strong>文件</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> haystack <span class="keyword">import</span> indexes</span><br><span class="line"><span class="keyword">from</span> .models <span class="keyword">import</span> News</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NewsIndex</span><span class="params">(indexes.SearchIndex,indexes.Indexable)</span>:</span> <span class="comment"># 类名必须为需要检索的Model_name+Index，这里需要检索News，所以创建NewsIndex类</span></span><br><span class="line">    text = indexes.CharField(document=<span class="literal">True</span>, use_template=<span class="literal">True</span>) <span class="comment"># 创建一个text字段</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_model</span><span class="params">(self)</span> :</span><span class="comment"># 对那张表进行查询</span></span><br><span class="line">        <span class="keyword">return</span> News</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">index_queryset</span><span class="params">(self, using=None)</span>:</span>  <span class="comment"># 针对哪些数据进行查询</span></span><br><span class="line">        <span class="keyword">return</span> self.get_model().objects.all()</span><br></pre></td></tr></table></figure>
-
-<p>每个索引里面必须有且只能有一个字段为 document=True，这代表haystack 和搜索引擎将使用此字段的内容作为索引进行检索(primary field)。</p>
-<h3 id="5-新建数据模板路径ArticlePost-text-txt"><a href="#5-新建数据模板路径ArticlePost-text-txt" class="headerlink" title="5. 新建数据模板路径ArticlePost_text.txt"></a>5. 新建数据模板路径ArticlePost_text.txt</h3><p>数据模板的路径为<strong>templates/search/indexes/news/news_text.txt，</strong><br>news为要建立索引的模型名称</p>
-<p>在这个txt文件中填写要检索的字段属性</p>
-<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; object.title&#125;&#125;</span><br><span class="line">&#123;&#123; object.context&#125;&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="6-添加url路由"><a href="#6-添加url路由" class="headerlink" title="6. 添加url路由"></a>6. 添加url路由</h3><p>在article应用的urls.py中添加路由：path(‘search/‘, include(“haystack.urls”)),,</p>
-<h3 id="7-重建索引文件"><a href="#7-重建索引文件" class="headerlink" title="7. 重建索引文件"></a>7. 重建索引文件</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage<span class="selector-class">.py</span> rebuild_index</span><br></pre></td></tr></table></figure>
-
-<h3 id="8-创建whoosh-cn-backend-py文件"><a href="#8-创建whoosh-cn-backend-py文件" class="headerlink" title="8. 创建whoosh_cn_backend.py文件"></a>8. 创建whoosh_cn_backend.py文件</h3><p>将文件<strong>whoosh_backend.py（路径为：python安装路径\Lib\site-packages\haystack\backends\whoosh_backend.py</strong>）拷贝到news这个app下，并加入以下代码，使用jieba进行分词</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">import jieba</span><br><span class="line"><span class="keyword">from</span> whoosh.analysis import Tokenizer, Token</span><br><span class="line"></span><br><span class="line">class ChineseTokenizer(Tokenizer):</span><br><span class="line">    def __call__(self, value, <span class="attribute">positions</span>=<span class="literal">False</span>, <span class="attribute">chars</span>=<span class="literal">False</span>,</span><br><span class="line">                 <span class="attribute">keeporiginal</span>=<span class="literal">False</span>, <span class="attribute">removestops</span>=<span class="literal">True</span>,</span><br><span class="line">                 <span class="attribute">start_pos</span>=0, <span class="attribute">start_char</span>=0, <span class="attribute">mode</span>=<span class="string">''</span>, **kwargs):</span><br><span class="line">        t = Token(positions, chars, <span class="attribute">removestops</span>=removestops, <span class="attribute">mode</span>=mode,</span><br><span class="line">                  **kwargs)</span><br><span class="line">        seglist = jieba.cut(value, <span class="attribute">cut_all</span>=<span class="literal">True</span>)</span><br><span class="line">        <span class="keyword">for</span> w <span class="keyword">in</span> seglist:</span><br><span class="line">            t.original = t.text = w</span><br><span class="line">            t.boost = 1.0</span><br><span class="line">            <span class="keyword">if</span> positions:</span><br><span class="line">                t.pos = start_pos + value.<span class="builtin-name">find</span>(w)</span><br><span class="line">            <span class="keyword">if</span> chars:</span><br><span class="line">                t.startchar = start_char + value.<span class="builtin-name">find</span>(w)</span><br><span class="line">                t.endchar = start_char + value.<span class="builtin-name">find</span>(w) + len(w)</span><br><span class="line">            yield t</span><br><span class="line"></span><br><span class="line">def ChineseAnalyzer():</span><br><span class="line">    return ChineseTokenizer()</span><br></pre></td></tr></table></figure>
-
-<h3 id="9-改写settings-py中搜索引擎"><a href="#9-改写settings-py中搜索引擎" class="headerlink" title="9. 改写settings.py中搜索引擎"></a>9. 改写settings.py中搜索引擎</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">HAYSTACK_CONNECTIONS = &#123;</span><br><span class="line">    <span class="string">'default'</span>: &#123;</span><br><span class="line">        <span class="string">'ENGINE'</span>: <span class="string">'apps.news.whoosh_cn_backend.WhooshEngine'</span>,      <span class="selector-id">#news</span>.whoosh_cn_backend便是你刚刚添加的文件</span><br><span class="line">        <span class="string">'PATH'</span>: os<span class="selector-class">.path</span><span class="selector-class">.join</span>(BASE_DIR, <span class="string">'whoosh_index'</span></span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
           
+使用haystack进行索引的建立以及查询
+一. 安装插件1pip install whoosh django-haystack jieba
+
+
+haystack是django的开源搜索框架，该框架支持Solr,Elasticsearch,Whoosh,Xapian搜索引擎，不用更改代码，直接切换引擎，减少代码量。
+
+搜索引擎使用Whoosh，这是一个由纯Python实现的全文搜索引擎，没有二进制文件等，比较小巧，配置比较简单，当然性能自然略低。
+
+中文分词Jieba，由于Whoosh自带的是
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/10/15/django用haystack进行索引的建立及查询/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1299,43 +1289,18 @@
       
         
           
-            <hr>
-<p><em>关于如何使用django-debug-toolbar这个开发django的调试工具</em></p>
-<h3 id="1-进行安装"><a href="#1-进行安装" class="headerlink" title="1. 进行安装"></a>1. 进行安装</h3><pre><code>pip install django-debug-toolbar</code></pre><p>一般我们先workon虚拟环境再进行操作</p>
-<h3 id="2-把debug-toolbar添加进INSTALLED-APPS"><a href="#2-把debug-toolbar添加进INSTALLED-APPS" class="headerlink" title="2. 把debug_toolbar添加进INSTALLED_APPS"></a>2. 把debug_toolbar添加进INSTALLED_APPS</h3><p>在settings.py文件下面添加这个debug_toolbar<br><strong>注意：如上图官方文档说的，一定要把debug_toolbar放在django.contrib.staticfiles，当然不要理解为紧跟着django.contrib.staticfiles后面，只要在后面即可。</strong></p>
-<h3 id="3-urls中配置"><a href="#3-urls中配置" class="headerlink" title="3. urls中配置"></a>3. urls中配置</h3><p>在项目url中配置 path中，地址为<strong>debug</strong>/，视图为include(debug_toolbar.urls)<br>完整的配置为： </p>
-<pre><code>if settings.DEBUG:
-   import debug_toolbar
-   urlpatterns.append(path(&quot;__debug__/&quot;,include(debug_toolbar.urls)))</code></pre><h3 id="4-配置中间件"><a href="#4-配置中间件" class="headerlink" title="4. 配置中间件"></a>4. 配置中间件</h3><p>在settings中的MIDDLEWARE配置’debug_toolbar.middleware.DebugToolbarMiddleware’,我们要把django-debug-toolbar这个中间件尽可能配置到最前面，但是，必须要放在处理编码和响应内容的中间件后面，比如我们要是使用了GZipMiddleware，就要把DebugToolbarMiddleware放在GZipMiddleware后面。 </p>
-<h3 id="5-配置ip地址"><a href="#5-配置ip地址" class="headerlink" title="5. 配置ip地址"></a>5. 配置ip地址</h3><p>我们需要在settings.py文件中配置INTERNAL_IPS，只有访问这里面配置的ip地址时， Debug Toolbar才是展示出来。因为我们一般都是本地开发，所以，直接配置为127.0.0.1就可以了 </p>
-<pre><code>INTERNAL_IPS = [&apos;127.0.0.1&apos;]</code></pre><h3 id="6-根据想要的功能配置面板"><a href="#6-根据想要的功能配置面板" class="headerlink" title="6. 根据想要的功能配置面板"></a>6. 根据想要的功能配置面板</h3><p>在settings.py中根据想要的面板进行展示</p>
-<pre><code>DEBUG_TOOLBAR_PANELS = [
-# 代表是哪个django版本
-#&apos;debug_toolbar.panels.versions.VersionsPanel&apos;,
-# 用来计时的，判断加载当前页面总共花的时间
-&apos;debug_toolbar.panels.timer.TimerPanel&apos;,
-# 读取django中的配置信息
-#&apos;debug_toolbar.panels.settings.SettingsPanel&apos;,
-# 看到当前请求头和响应头信息
-#&apos;debug_toolbar.panels.headers.HeadersPanel&apos;,
-# 当前请求的想信息（视图函数，Cookie信息，Session信息等）
-&apos;debug_toolbar.panels.request.RequestPanel&apos;,
-# 查看SQL语句
-&apos;debug_toolbar.panels.sql.SQLPanel&apos;,
-# 静态文件
-#&apos;debug_toolbar.panels.staticfiles.StaticFilesPanel&apos;,
-# 模板文件
-#&apos;debug_toolbar.panels.templates.TemplatesPanel&apos;,
-# 缓存
-#&apos;debug_toolbar.panels.cache.CachePanel&apos;,
-# 信号
-#&apos;debug_toolbar.panels.signals.SignalsPanel&apos;,
-# 日志
-#&apos;debug_toolbar.panels.logging.LoggingPanel&apos;,
-# 重定向
-#&apos;debug_toolbar.panels.redirects.RedirectsPanel&apos;,</code></pre><p>]<br>这里我使用了其中几个模板，效果如下图所示：<br><img src="http://pyc1lgciv.bkt.clouddn.com/1570283552210.png" alt="avatar"></p>
-
           
+关于如何使用django-debug-toolbar这个开发django的调试工具
+1. 进行安装pip install django-debug-toolbar一般我们先workon虚拟环境再进行操作
+2. 把debug_toolbar添加进INSTALLED_APPS在settings.py文件下面添加这个debug_toolbar注意：如上图官方文档说的，一定要把debug_toolbar放在django.contrib.staticfiles，当然不要理解为紧跟着django.cont
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/10/05/django-debug-toolbar的使用/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1478,26 +1443,20 @@
       
         
           
-            <hr>
-<p>最近在开发一个Django项目过程中遇到了一个问题：不知道如何将从后端返回的数据返回前端按照想要的格式来传递。</p>
-<h3 id="首先定义的restful接口返回前端为："><a href="#首先定义的restful接口返回前端为：" class="headerlink" title="首先定义的restful接口返回前端为："></a>首先定义的restful接口返回前端为：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">json_dict = &#123;<span class="string">"code"</span>:code, <span class="string">"message"</span>:message, <span class="string">"data"</span>:data&#125;</span><br><span class="line"><span class="comment"># code表示当前状态码 message表示报错消息 data表示要传输的数据</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="当前遇到的一个需求"><a href="#当前遇到的一个需求" class="headerlink" title="当前遇到的一个需求"></a>当前遇到的一个需求</h3><p>通过点击‘查看更多’的按钮，返回更多的新闻，已经在后端写了如下代码的一个借口：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">def news_list(request):</span><br><span class="line">    <span class="comment"># 通过p参数来指定要获取第几页的数据</span></span><br><span class="line">    <span class="comment"># 并且这个p参数是通过查询字符串的方式传过来的</span></span><br><span class="line">    page = int(request.GET.get(<span class="string">'p'</span>,1)) <span class="comment"># 默认为1</span></span><br><span class="line">    start = (page-1)*settings.ONE_PAGE_NEWS_COUNT</span><br><span class="line">    end = start + settings.ONE_PAGE_NEWS_COUNT</span><br><span class="line">    news = News.objects.order_by(<span class="string">'-pub-time'</span>)[start:end].value()</span><br><span class="line">    <span class="comment"># 通过value方法将 QurySet对象 变成字典的形式，然后从News的数据库中获取内容</span></span><br><span class="line">    <span class="keyword">for</span> new <span class="keyword">in</span> news:</span><br><span class="line">        <span class="built_in">print</span>(new)</span><br></pre></td></tr></table></figure>
-
-<p>在news模型中我是按以下代码进行定义的：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class News(models.Model):</span><br><span class="line">    title = models.CharField(max_length=200)</span><br><span class="line">    desc = models.CharField(max_length=200)</span><br><span class="line">    thumbnail = models.URLField()</span><br><span class="line">    context = models.TextField()</span><br><span class="line">    pub_time = models.DateTimeField(auto_now_add=True)</span><br><span class="line">    category = models.ForeignKey(<span class="string">'NewsCategroy'</span>, on_delete=models.SET_NULL,null=True)</span><br><span class="line">    author = models.ForeignKey(<span class="string">'xfzauth.User'</span>, on_delete=models.SET_NULL,null=True)</span><br></pre></td></tr></table></figure>
-
-<p>可以看出调用了category的外键，而categroy模型中有含有‘id’和‘name’两个字段，我想返回的data中含有这两个字段，而事实上只返回了‘id’这个字段。</p>
-<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>在查看很多文章后，了解到了django rest Framework这个rest的框架，官方文档地址为<a href="http://www.django-rest-framework.org" title="django rest" target="_blank" rel="noopener">Django Rest</a>，在阅读了一点快速入门的官方文档后，我了解到了<strong>serializar</strong>这个序列化器，发现他的使用方法和django框架中建立form表单相当类似。<br>然后我在当前app位置下建立了一个新的py文件，并命名为serializar，然后仿照form表单的写法写了以下的代码：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">from rest_framework <span class="keyword">import</span> serializers</span><br><span class="line">from .models <span class="keyword">import</span> News,NewsCategroy</span><br><span class="line">from apps.xfzauth.serializers <span class="keyword">import</span> UserSerializer</span><br><span class="line"></span><br><span class="line">class NewsCategorySerializer(serializers.ModelSerializer):</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        model = NewsCategroy</span><br><span class="line">        fields = ('id','name')</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class NewsSerializer(serializers.ModelSerializer):</span><br><span class="line">    category = NewsCategorySerializer()</span><br><span class="line">    author = UserSerializer()</span><br><span class="line">    class Meta:</span><br><span class="line">        model = News</span><br><span class="line">        fields = ('id','title','desc','thumbnail','category','author')</span><br></pre></td></tr></table></figure>
-
-<p>然后在view.py文件下改写了之前的接口，不再调用value方法。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">def news_list(request):</span><br><span class="line">    <span class="comment"># 通过p参数来指定要获取第几页的数据</span></span><br><span class="line">    <span class="comment"># 并且这个p参数是通过查询字符串的方式传过来的</span></span><br><span class="line">    page = int(request.GET.get('p',1))</span><br><span class="line">    <span class="keyword">start</span> = (page<span class="number">-1</span>)*settings.ONE_PAGE_NEWS_COUNT</span><br><span class="line">    <span class="keyword">end</span> = <span class="keyword">start</span> + settings.ONE_PAGE_NEWS_COUNT</span><br><span class="line">    news = News.objects.order_by(<span class="string">'-pub-time'</span>)[<span class="keyword">start</span>:<span class="keyword">end</span>]</span><br><span class="line">    serializer = NewsSerializer(news,many=<span class="literal">True</span>) <span class="comment"># 新建一个对象，many表示要处理很多个这样的数据</span></span><br><span class="line">    <span class="keyword">data</span> = serializer.data <span class="comment"># 获取当前对象的数据</span></span><br><span class="line">    <span class="keyword">return</span> restful.result(<span class="keyword">data</span>=<span class="keyword">data</span>) <span class="comment"># 调用restful的方法，将data传递进去</span></span><br></pre></td></tr></table></figure>
-
-<p>最后成功显示了’id’和’name’这两个字段，能在前端页面显示分类的名字，而不是他的序号</p>
-
           
+最近在开发一个Django项目过程中遇到了一个问题：不知道如何将从后端返回的数据返回前端按照想要的格式来传递。
+首先定义的restful接口返回前端为：12json_dict = &#123;"code":code, "message":message, "data":data&#125;# code表示当前状态码 message表示报错消息 data表示要传输的数据
+
+当前遇到的一个需求通过点击‘查看更多’的按钮，返回更多的新闻，已经在后端写了如下代码的一个借口：
+12345678910de
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/09/26/django-restful/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1618,21 +1577,18 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick StartCreate a new post1$ hexo new "My New Post"
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/29/hello-world/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1717,7 +1673,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

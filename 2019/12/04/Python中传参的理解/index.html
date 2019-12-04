@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Python,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Python函数中，参数是传值还是传引用。因为最近在刷算法题的时候遇到了这样一个问题，传入了一个链表的头节点Head作为参数，然后在函数中通过head遍历链表，我在想要不要先给head赋值给一个新建的变量，毕竟我不希望head的值发生变化。在亲手试验了后发现，不需要给head赋一个新建变量，最后在函数的外部，head的值一直保持不变，也就是在函数的内部改变head的值，对对象head本身没有影响">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python中传参的理解">
+<meta property="og:url" content="http://yoursite.com/2019/12/04/Python中传参的理解/index.html">
+<meta property="og:site_name" content="PercyT’s blog">
+<meta property="og:description" content="Python函数中，参数是传值还是传引用。因为最近在刷算法题的时候遇到了这样一个问题，传入了一个链表的头节点Head作为参数，然后在函数中通过head遍历链表，我在想要不要先给head赋值给一个新建的变量，毕竟我不希望head的值发生变化。在亲手试验了后发现，不需要给head赋一个新建变量，最后在函数的外部，head的值一直保持不变，也就是在函数的内部改变head的值，对对象head本身没有影响">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-12-04T13:55:58.542Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python中传参的理解">
+<meta name="twitter:description" content="Python函数中，参数是传值还是传引用。因为最近在刷算法题的时候遇到了这样一个问题，传入了一个链表的头节点Head作为参数，然后在函数中通过head遍历链表，我在想要不要先给head赋值给一个新建的变量，毕竟我不希望head的值发生变化。在亲手试验了后发现，不需要给head赋一个新建变量，最后在函数的外部，head的值一直保持不变，也就是在函数的内部改变head的值，对对象head本身没有影响">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/12/04/Python中传参的理解/">
+
+
+
+
+
+  <title>Python中传参的理解 | PercyT’s blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">PercyT’s blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">记录学习过程中的点点滴滴</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/04/Python中传参的理解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Percy">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/author.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PercyT’s blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python中传参的理解</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-04T21:54:23+08:00">
+                2019-12-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<h3 id="Python函数中，参数是传值还是传引用。因为最近在刷算法题的时候遇到了这样一个问题，传入了一个链表的头节点Head作为参数，然后在函数中通过head遍历链表，我在想要不要先给head赋值给一个新建的变量，毕竟我不希望head的值发生变化。在亲手试验了后发现，不需要给head赋一个新建变量，最后在函数的外部，head的值一直保持不变，也就是在函数的内部改变head的值，对对象head本身没有影响，也就是head是传入了一个引用。"><a href="#Python函数中，参数是传值还是传引用。因为最近在刷算法题的时候遇到了这样一个问题，传入了一个链表的头节点Head作为参数，然后在函数中通过head遍历链表，我在想要不要先给head赋值给一个新建的变量，毕竟我不希望head的值发生变化。在亲手试验了后发现，不需要给head赋一个新建变量，最后在函数的外部，head的值一直保持不变，也就是在函数的内部改变head的值，对对象head本身没有影响，也就是head是传入了一个引用。" class="headerlink" title="Python函数中，参数是传值还是传引用。因为最近在刷算法题的时候遇到了这样一个问题，传入了一个链表的头节点Head作为参数，然后在函数中通过head遍历链表，我在想要不要先给head赋值给一个新建的变量，毕竟我不希望head的值发生变化。在亲手试验了后发现，不需要给head赋一个新建变量，最后在函数的外部，head的值一直保持不变，也就是在函数的内部改变head的值，对对象head本身没有影响，也就是head是传入了一个引用。"></a>Python函数中，参数是传值还是传引用。因为最近在刷算法题的时候遇到了这样一个问题，传入了一个链表的头节点Head作为参数，然后在函数中通过head遍历链表，我在想要不要先给head赋值给一个新建的变量，毕竟我不希望head的值发生变化。在亲手试验了后发现，不需要给head赋一个新建变量，最后在函数的外部，head的值一直保持不变，也就是在函数的内部改变head的值，对对象head本身没有影响，也就是head是传入了一个引用。</h3><p>所以当我想把当前头节点的值变为None，对当前函数传入的head进行赋值为None也是无济于事的，所以我用了如下的代码段进行实现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class Node(object):</span><br><span class="line">    def __init__(self, item):</span><br><span class="line">        self.item = item</span><br><span class="line">        self.next = None</span><br><span class="line">    def __del__(self):</span><br><span class="line">        self.item = None</span><br><span class="line">        self.next = None</span><br><span class="line"></span><br><span class="line">def deleteNode(head, node):</span><br><span class="line">    &quot;&quot;&quot;删除链表节点&quot;&quot;&quot;</span><br><span class="line">    if head is node and node.next is None:</span><br><span class="line">        head.__del__()</span><br><span class="line">    elif node.next is None:</span><br><span class="line">        while head.next is not node:</span><br><span class="line">            head = head.next</span><br><span class="line">        head.next = None</span><br><span class="line">    else:</span><br><span class="line">        node.item = node.next.item</span><br><span class="line">        node.next = node.next.next</span><br></pre></td></tr></table></figure>
+
+<p>这样就成功给head赋了值，进一步的我想更加深入了解python中传值的机制，因为别的一些语言如c语言，如果想改变传入参数就用传入一个指针，我对python中传值是如何的并不是特别了解，于是记录如下。</p>
+<p>Python 中一切皆为对象，数字是对象，列表是对象，函数也是对象，任何东西都是对象。而变量是对象的一个引用（又称为名字或者标签），对象的操作都是通过引用来完成的。例如，[]是一个空列表对象，变量 a 是该对象的一个引用。</p>
+<p>在 Python 中，「变量」更准确叫法是「名字」，赋值操作 = 就是把一个名字绑定到一个对象上。就像给对象添加一个标签。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = 1</span><br></pre></td></tr></table></figure>
+
+<p>整数 1 赋值给变量 a 就相当于是在整数1上绑定了一个 a 标签】</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = 2</span><br></pre></td></tr></table></figure>
+
+<p>整数 2 赋值给变量 a，相当于把原来整数 1 身上的 a 标签撕掉，贴到整数 2 身上。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">b = a</span><br></pre></td></tr></table></figure>
+
+<p>把变量 a 赋值给另外一个变量 b，相当于在对象 2 上贴了 a，b 两个标签，通过这两个变量都可以对对象 2 进行操作。</p>
+<p>变量本身没有类型信息，类型信息存储在对象中，这和C/C++中的变量有非常大的出入（C中的变量是一段内存区域）</p>
+<p>Python 函数中，参数的传递本质上是一种赋值操作，而赋值操作是一种名字到对象的绑定过程，清楚了赋值和参数传递的本质之后，现在再来分析两段代码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">def foo(arg):</span><br><span class="line"> </span><br><span class="line">    arg = 2</span><br><span class="line"> </span><br><span class="line">    print(arg)</span><br><span class="line"> </span><br><span class="line">  </span><br><span class="line"> </span><br><span class="line">a = 1</span><br><span class="line"> </span><br><span class="line">foo(a)  # 输出：2</span><br><span class="line"> </span><br><span class="line">print(a) # 输出：1</span><br></pre></td></tr></table></figure>
+
+<p>在代码段1中，变量 a 绑定了 1，调用函数 foo(a) 时，相当于给参数 arg 赋值 arg=1，这时两个变量都绑定了 1。在函数里面 arg 重新赋值为 2 之后，相当于把 1 上的 arg 标签撕掉，贴到 2 身上，而 1 上的另外一个标签 a 一直存在。因此 print(a) 还是 1。</p>
+<p>再来看一下代码段2</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">def bar(args):</span><br><span class="line"> </span><br><span class="line">    args.append(1)</span><br><span class="line"> </span><br><span class="line">  </span><br><span class="line"> </span><br><span class="line">b = []</span><br><span class="line"> </span><br><span class="line">print(b)#　输出：[]</span><br><span class="line"> </span><br><span class="line">print(id(b)) # 输出：4324106952</span><br><span class="line"> </span><br><span class="line">bar(b)</span><br><span class="line"> </span><br><span class="line">print(b) ＃　输出：[1]</span><br><span class="line"> </span><br><span class="line">print(id(b))  # 输出：4324106952</span><br></pre></td></tr></table></figure>
+
+<p>执行 append 方法前 b 和 arg 都指向（绑定）同一个对象，执行 append 方法时，并没有重新赋值操作，也就没有新的绑定过程，append 方法只是对列表对象插入一个元素，对象还是那个对象，只是对象里面的内容变了。因为 b 和 arg 都是绑定在同一个对象上，执行 b.append 或者 arg.append 方法本质上都是对同一个对象进行操作，因此 b 的内容在调用函数后发生了变化（但id没有变，还是原来那个对象）</p>
+<p>最后，回到问题本身，究竟是是传值还是传引用呢？说传值或者传引用都不准确。非要安一个确切的叫法的话，叫传对象（call by object）。</p>
+<p>一个心得：在python中传值要看传入的参数是什么类型，如果是整形这样的值或者字符、元组这种不可变的对象，那么就是传值，如果是列表、字典这样的可变对象，那么传递的就是一个引用。至于为什么是这样，是因为python中新建一个可变参数就会新分配地址，而不可变参数不会分配新的地址。</p>
+<p>所以回到问题本身，我们创建的head = Node()是对这个node对象的一个变量赋值，所以在传入函数的时候，如函数 def deleteNode(head, node)，传入后相当于这里也有一个变量head也指向node对象，我们对head赋值为None，只是将变量head从对象node上的标签撕下而已，所以如果要改变head的值，只能从类的定义里面定义方法把对象的本身进行修改。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/11/25/剑指offer总结-一/" rel="next" title="剑指offer总结(一)">
+                <i class="fa fa-chevron-left"></i> 剑指offer总结(一)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/author.jpg" alt="Percy">
+            
+              <p class="site-author-name" itemprop="name">Percy</p>
+              <p class="site-description motion-element" itemprop="description">个人博客，主要涉及后端知识共享、实践教程、前沿技术共同学习等方面</p>
+          </div>
+          
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+            
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+          
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/PercyT" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/SuperYean" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-globe"></i>微博</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+          
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Python函数中，参数是传值还是传引用。因为最近在刷算法题的时候遇到了这样一个问题，传入了一个链表的头节点Head作为参数，然后在函数中通过head遍历链表，我在想要不要先给head赋值给一个新建的变量，毕竟我不希望head的值发生变化。在亲手试验了后发现，不需要给head赋一个新建变量，最后在函数的外部，head的值一直保持不变，也就是在函数的内部改变head的值，对对象head本身没有影响，也就是head是传入了一个引用。"><span class="nav-number">1.</span> <span class="nav-text">Python函数中，参数是传值还是传引用。因为最近在刷算法题的时候遇到了这样一个问题，传入了一个链表的头节点Head作为参数，然后在函数中通过head遍历链表，我在想要不要先给head赋值给一个新建的变量，毕竟我不希望head的值发生变化。在亲手试验了后发现，不需要给head赋一个新建变量，最后在函数的外部，head的值一直保持不变，也就是在函数的内部改变head的值，对对象head本身没有影响，也就是head是传入了一个引用。</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=31010566&auto=0&height=66"></iframe>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Percy</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+
