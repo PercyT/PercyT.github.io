@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="计算机网络实验,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="最近把计算机网络的实验都完成了，在实践的过程中收获了许多，前面几个实验都比较简单，都是个人独自完成的，后来的都是小组实验，然后我做了小组中三个实验，在实验过程中都遇到了许许多多的问题，最后还是耐心的一个个解决了。1. 配置静态NAT配置网络地址变换，提供到公司共享服务器的可靠外部访问。在路由器上把172.16.1.5和176.16.1.6两台主机静态映射到外部，把内网隐藏起来。 网络拓扑图： 实">
+<meta name="keywords" content="计算机网络实验">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计网实验">
+<meta property="og:url" content="http://yoursite.com/2019/12/07/计网实验/index.html">
+<meta property="og:site_name" content="PercyT’s blog">
+<meta property="og:description" content="最近把计算机网络的实验都完成了，在实践的过程中收获了许多，前面几个实验都比较简单，都是个人独自完成的，后来的都是小组实验，然后我做了小组中三个实验，在实验过程中都遇到了许许多多的问题，最后还是耐心的一个个解决了。1. 配置静态NAT配置网络地址变换，提供到公司共享服务器的可靠外部访问。在路由器上把172.16.1.5和176.16.1.6两台主机静态映射到外部，把内网隐藏起来。 网络拓扑图： 实">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/U2e9ad36fddf04d3f9be1e74cd37e40647.png">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/U31a959080aef4a539c9e6dfdcdff3848H.png">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/U2e9ad36fddf04d3f9be1e74cd37e40647.png">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/Uf90cba133b174b3380b8bfaab419e9aaa.png">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/Ub38b403b404d432b9b783a4f0efa5bf01.png">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/U4d7cc89cea344d1282a7789ef979d63aY.png">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/U284a1213cb574ee6be1ff5125aea92e3S.png">
+<meta property="og:updated_time" content="2019-12-07T06:59:49.418Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="计网实验">
+<meta name="twitter:description" content="最近把计算机网络的实验都完成了，在实践的过程中收获了许多，前面几个实验都比较简单，都是个人独自完成的，后来的都是小组实验，然后我做了小组中三个实验，在实验过程中都遇到了许许多多的问题，最后还是耐心的一个个解决了。1. 配置静态NAT配置网络地址变换，提供到公司共享服务器的可靠外部访问。在路由器上把172.16.1.5和176.16.1.6两台主机静态映射到外部，把内网隐藏起来。 网络拓扑图： 实">
+<meta name="twitter:image" content="https://ae01.alicdn.com/kf/U2e9ad36fddf04d3f9be1e74cd37e40647.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/12/07/计网实验/">
+
+
+
+
+
+  <title>计网实验 | PercyT’s blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">PercyT’s blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">记录学习过程中的点点滴滴</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/07/计网实验/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Percy">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/author.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PercyT’s blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">计网实验</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-07T14:20:11+08:00">
+                2019-12-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机网络/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机网络</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<h4 id="最近把计算机网络的实验都完成了，在实践的过程中收获了许多，前面几个实验都比较简单，都是个人独自完成的，后来的都是小组实验，然后我做了小组中三个实验，在实验过程中都遇到了许许多多的问题，最后还是耐心的一个个解决了。"><a href="#最近把计算机网络的实验都完成了，在实践的过程中收获了许多，前面几个实验都比较简单，都是个人独自完成的，后来的都是小组实验，然后我做了小组中三个实验，在实验过程中都遇到了许许多多的问题，最后还是耐心的一个个解决了。" class="headerlink" title="最近把计算机网络的实验都完成了，在实践的过程中收获了许多，前面几个实验都比较简单，都是个人独自完成的，后来的都是小组实验，然后我做了小组中三个实验，在实验过程中都遇到了许许多多的问题，最后还是耐心的一个个解决了。"></a>最近把计算机网络的实验都完成了，在实践的过程中收获了许多，前面几个实验都比较简单，都是个人独自完成的，后来的都是小组实验，然后我做了小组中三个实验，在实验过程中都遇到了许许多多的问题，最后还是耐心的一个个解决了。</h4><h3 id="1-配置静态NAT"><a href="#1-配置静态NAT" class="headerlink" title="1. 配置静态NAT"></a>1. 配置静态NAT</h3><p>配置网络地址变换，提供到公司共享服务器的可靠外部访问。在路由器上把172.16.1.5和176.16.1.6两台主机静态映射到外部，把内网隐藏起来。</p>
+<p>网络拓扑图：<br><img src="https://ae01.alicdn.com/kf/U2e9ad36fddf04d3f9be1e74cd37e40647.png" alt="image"></p>
+<p>实验步骤：<br>（1）在路由器上配置IP路由选择和IP地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">tarena-R1(config)#interface f0/0</span><br><span class="line">tarena-R1(config-if)#ip address 192.168.0.1 255.255.255.0</span><br><span class="line">tarena-R1(config-if)#no shutdown</span><br><span class="line">tarena-R1(config-if)#interface f0/1</span><br><span class="line">tarena-R1(config-if)#ip address 201.1.1.1 255.255.255.0</span><br><span class="line">tarena-R1(config-if)#no shutdown</span><br><span class="line">tarena-R1(config-if)#exit</span><br><span class="line">tarena-R1(config)#ip route 0.0.0.0 0.0.0.0 201.1.1.254</span><br></pre></td></tr></table></figure>
+
+<p>（2）配置静态NAT</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tarena-R1(config)#ip nat inside source static 192.168.0.10 201.1.1.2</span><br><span class="line">tarena-R1(config)#ip nat inside source static 192.168.0.20 201.1.1.3</span><br></pre></td></tr></table></figure>
+
+<p>（3）指定一个内部接口和一个外部接口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tarena-R1(config)#interface f0/0</span><br><span class="line">tarena-R1(config-if)#ip nat inside</span><br><span class="line">tarena-R1(config-if)#interface f0/1</span><br><span class="line">tarena-R1(config-if)#ip nat outside</span><br></pre></td></tr></table></figure>
+
+<p>（4）验证测试<br><img src="https://ae01.alicdn.com/kf/U31a959080aef4a539c9e6dfdcdff3848H.png" alt="image"></p>
+<p>参考文献：<br>（1)配置静态NAT<br><a href="https://blog.csdn.net/qq_43237999/article/details/89743473" target="_blank" rel="noopener">https://blog.csdn.net/qq_43237999/article/details/89743473</a><br>（2)一分钟了解网关<br><a href="http://www.sohu.com/a/259848610_100043691" target="_blank" rel="noopener">http://www.sohu.com/a/259848610_100043691</a></p>
+<h3 id="2-配置动态NAT"><a href="#2-配置动态NAT" class="headerlink" title="2. 配置动态NAT"></a>2. 配置动态NAT</h3><p> 配置网络地址变换，为私有地址的用户提供到外部网络的资源的访问。某IT企业因业务拓展，需要升级网络，他们选择172.16.1.0/24作为私有地址，并用NAT来处理与外部的连接。</p>
+<p> 网络拓扑图：<br> <img src="https://ae01.alicdn.com/kf/U2e9ad36fddf04d3f9be1e74cd37e40647.png" alt="image"></p>
+<p> 实验步骤：</p>
+<p>(1)删除静态NAT配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tarena-R1(config)#no ip nat inside source static 192.168.0.10 201.1.1.2</span><br><span class="line">tarena-R1(config)#no ip nat inside source static 192.168.0.20 201.1.1.3</span><br></pre></td></tr></table></figure>
+
+<p>(2)在R1上配置包括内网所有IP地址的ACL</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tarena-R1(config)#access-list 1 permit 192.168.0.0 0.0.0.255</span><br></pre></td></tr></table></figure>
+
+<p>(3)在R1上配置合法的IP地址池<br>地址池是向ISP（Internet服务提供商，如电信、联通）申请得到的，内网主机（上一步ACL中所包含的IP地址）到外网的访问，内网地址将被动态的、随机的转换为这些合法地址。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tarena-R1(config)#ip nat pool natpool 201.1.1.2 201.1.1.5 netmask 255.255.255.0</span><br></pre></td></tr></table></figure>
+
+<p>(4)关联ACL和合法的IP地址池</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tarena-R1(config)#ip nat inside source list 1 pool natpool</span><br></pre></td></tr></table></figure>
+
+<p>(5)在R1上配置NAT内、外端口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tarena-R1(config)#interface f0/0</span><br><span class="line">tarena-R1(config-if)#ip nat inside </span><br><span class="line">tarena-R1(config-if)#interface f0/1</span><br><span class="line">tarena-R1(config-if)#ip nat outsidec</span><br></pre></td></tr></table></figure>
+
+<p>(6)测试：<br><img src="https://ae01.alicdn.com/kf/Uf90cba133b174b3380b8bfaab419e9aaa.png" alt="image"></p>
+<h3 id="3-配置静态NAT"><a href="#3-配置静态NAT" class="headerlink" title="3. 配置静态NAT"></a>3. 配置静态NAT</h3><p>你是一个公司的网络管理员，公司的经理部、财务部门和销售部门分属不同的3个网段，三部门之间用路由器进行信息传递，为了安全起见，公司领导要求销售部门不能对财务部门进行访问，但经理部可以对财务部门进行访问。<br>PC1代表经理部的主机，PC2代表销售部门的主机、PC3代表财务部门的主机’</p>
+<p>网络拓扑图：<br><img src="https://ae01.alicdn.com/kf/Ub38b403b404d432b9b783a4f0efa5bf01.png" alt="image"></p>
+<p>实验步骤：<br>(1) 路由器基本配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Red-Giant&gt;enable</span><br><span class="line">Red-Giant#configure terminal</span><br><span class="line">Red-Giant(config)#hostname Router1</span><br><span class="line">Router1(config)# interface fastEthernet 1/0</span><br><span class="line">Router1(config-if)#ip add 172.16.1.1 255.255.255.0</span><br><span class="line">Router1(config-if)#no shutdown</span><br><span class="line">Router1(config-if)# interface fastEthernet 1/1</span><br><span class="line">Router1(config-if)#ip add 172.16.2.1 255.255.255.0</span><br><span class="line">Router1(config-if)#no shutdown</span><br><span class="line">Router1(config-if)#interface serial 1/2</span><br><span class="line">Router1(config-if)#ip add 172.16.3.1 255.255.255.0</span><br><span class="line">Router1(config-if)#clock rate 64000</span><br><span class="line">Router1(config-if)#no shutdown</span><br><span class="line">Router1(config-if)#end</span><br></pre></td></tr></table></figure>
+
+<p>(2) 配置静态路由：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Router1(config)#ip route 172.16.4.0 255.255.255.0 serial 1/2</span><br><span class="line">Router2(config)#ip route 172.16.1.0 255.255.255.0 serial 1/2</span><br><span class="line">Router2(config)#ip route 172.16.2.0 255.255.255.0 serial 1/2</span><br></pre></td></tr></table></figure>
+
+<p>(3) 配置访问列表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Router2(config)#access-list 1 deny 172.16.2.0 0.0.0.255</span><br><span class="line">   ! 拒绝来自172.16.2.0网段的流量通过</span><br><span class="line">Router2(config)#access-list 1 permit 172.16.1.0 0.0.0.255</span><br><span class="line">   ! 允许来自172.16.1.0网段的流量通过</span><br></pre></td></tr></table></figure>
+
+<p>(4) 验证测试</p>
+<p>经理部门访问能访问：<br><img src="https://ae01.alicdn.com/kf/U4d7cc89cea344d1282a7789ef979d63aY.png" alt="image"><br>销售部门访问不能访问:<br><img src="https://ae01.alicdn.com/kf/U284a1213cb574ee6be1ff5125aea92e3S.png" alt="image"></p>
+<p>总结：在做实验的过程中，也进一步巩固了理论的知识，收获了许多，对于自己解决问题的能力加强了很多</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/计算机网络实验/" rel="tag"><i class="fa fa-tag"></i> 计算机网络实验</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/04/Python中传参的理解/" rel="next" title="Python中传参的理解">
+                <i class="fa fa-chevron-left"></i> Python中传参的理解
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/author.jpg" alt="Percy">
+            
+              <p class="site-author-name" itemprop="name">Percy</p>
+              <p class="site-description motion-element" itemprop="description">个人博客，主要涉及后端知识共享、实践教程、前沿技术共同学习等方面</p>
+          </div>
+          
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+            
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+          
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/PercyT" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/SuperYean" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-globe"></i>微博</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+          
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#最近把计算机网络的实验都完成了，在实践的过程中收获了许多，前面几个实验都比较简单，都是个人独自完成的，后来的都是小组实验，然后我做了小组中三个实验，在实验过程中都遇到了许许多多的问题，最后还是耐心的一个个解决了。"><span class="nav-number">1.</span> <span class="nav-text">最近把计算机网络的实验都完成了，在实践的过程中收获了许多，前面几个实验都比较简单，都是个人独自完成的，后来的都是小组实验，然后我做了小组中三个实验，在实验过程中都遇到了许许多多的问题，最后还是耐心的一个个解决了。</span></a></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#1-配置静态NAT"><span class="nav-number"></span> <span class="nav-text">1. 配置静态NAT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-配置动态NAT"><span class="nav-number"></span> <span class="nav-text">2. 配置动态NAT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-配置静态NAT"><span class="nav-number"></span> <span class="nav-text">3. 配置静态NAT</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=31010566&auto=0&height=66"></iframe>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Percy</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+
