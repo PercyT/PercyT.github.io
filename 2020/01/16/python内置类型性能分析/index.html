@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="golang,string,">
+  <meta name="keywords" content="python,timeit,">
 
 
 
@@ -79,18 +79,21 @@
 
 
 
-<meta name="description" content="golang学习过程中接触到了字符串处理，每种语言都有字符串处理的内建函数，golang则是将内建函数放置在string包中，概括了一些常用的string包中的函数列举如下： HasPrefix:判断字符串 s 是否以 prefix 开头： 1strings.HasPrefix(s, prefix string) bool  HasSuffix 判断字符串 s 是否以 suffix 结尾： 1s">
-<meta name="keywords" content="golang,string">
+<meta name="description" content="如果我们要测试一段代码的时间复杂度，在python中有一个包里的类是专门用于测试性能的。1.时间复杂度学习数据结构的时候都接触过时间复杂度，其实就是判断算法性能的一种方式，还有空间复杂度也是一样。计算时间复杂度的时候，我们遵循下面几条规则：  基本操作，即只有常数项，认为其时间复杂度为O(1) 顺序结构，时间复杂度按加法进行计算 循环结构，时间复杂度按乘法进行计算 分支结构，时间复杂度取最大值">
+<meta name="keywords" content="python,timeit">
 <meta property="og:type" content="article">
-<meta property="og:title" content="go中的string包">
-<meta property="og:url" content="http://yoursite.com/2019/10/19/go中的string包/index.html">
+<meta property="og:title" content="python内置类型性能分析">
+<meta property="og:url" content="http://yoursite.com/2020/01/16/python内置类型性能分析/index.html">
 <meta property="og:site_name" content="PercyT’s blog">
-<meta property="og:description" content="golang学习过程中接触到了字符串处理，每种语言都有字符串处理的内建函数，golang则是将内建函数放置在string包中，概括了一些常用的string包中的函数列举如下： HasPrefix:判断字符串 s 是否以 prefix 开头： 1strings.HasPrefix(s, prefix string) bool  HasSuffix 判断字符串 s 是否以 suffix 结尾： 1s">
+<meta property="og:description" content="如果我们要测试一段代码的时间复杂度，在python中有一个包里的类是专门用于测试性能的。1.时间复杂度学习数据结构的时候都接触过时间复杂度，其实就是判断算法性能的一种方式，还有空间复杂度也是一样。计算时间复杂度的时候，我们遵循下面几条规则：  基本操作，即只有常数项，认为其时间复杂度为O(1) 顺序结构，时间复杂度按加法进行计算 循环结构，时间复杂度按乘法进行计算 分支结构，时间复杂度取最大值">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-19T06:10:29.974Z">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/U068553d9b6a0495da321e21056ed170d1.png">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/U96713b58f9d5409a8e21de4e57125d8fh.png">
+<meta property="og:updated_time" content="2020-01-16T07:09:21.946Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="go中的string包">
-<meta name="twitter:description" content="golang学习过程中接触到了字符串处理，每种语言都有字符串处理的内建函数，golang则是将内建函数放置在string包中，概括了一些常用的string包中的函数列举如下： HasPrefix:判断字符串 s 是否以 prefix 开头： 1strings.HasPrefix(s, prefix string) bool  HasSuffix 判断字符串 s 是否以 suffix 结尾： 1s">
+<meta name="twitter:title" content="python内置类型性能分析">
+<meta name="twitter:description" content="如果我们要测试一段代码的时间复杂度，在python中有一个包里的类是专门用于测试性能的。1.时间复杂度学习数据结构的时候都接触过时间复杂度，其实就是判断算法性能的一种方式，还有空间复杂度也是一样。计算时间复杂度的时候，我们遵循下面几条规则：  基本操作，即只有常数项，认为其时间复杂度为O(1) 顺序结构，时间复杂度按加法进行计算 循环结构，时间复杂度按乘法进行计算 分支结构，时间复杂度取最大值">
+<meta name="twitter:image" content="https://ae01.alicdn.com/kf/U068553d9b6a0495da321e21056ed170d1.png">
 
 
 
@@ -120,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/10/19/go中的string包/">
+  <link rel="canonical" href="http://yoursite.com/2020/01/16/python内置类型性能分析/">
 
 
 
 
 
-  <title>go中的string包 | PercyT’s blog</title>
+  <title>python内置类型性能分析 | PercyT’s blog</title>
   
 
 
@@ -263,7 +266,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/19/go中的string包/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/16/python内置类型性能分析/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Percy">
@@ -280,7 +283,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">go中的string包</h1>
+          <h1 class="post-title" itemprop="name headline">python内置类型性能分析</h1>
         
 
         <div class="post-meta">
@@ -292,8 +295,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-19T13:57:53+08:00">
-                2019-10-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-16T15:08:05+08:00">
+                2020-01-16
               </time>
             
 
@@ -315,8 +318,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/golang/" itemprop="url" rel="index">
-                    <span itemprop="name">golang</span>
+                  <a href="/categories/算法与数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">算法与数据结构</span>
                   </a>
                 </span>
 
@@ -353,53 +356,29 @@
 
       
         <hr>
-<h4 id="golang学习过程中接触到了字符串处理，每种语言都有字符串处理的内建函数，golang则是将内建函数放置在string包中，概括了一些常用的string包中的函数"><a href="#golang学习过程中接触到了字符串处理，每种语言都有字符串处理的内建函数，golang则是将内建函数放置在string包中，概括了一些常用的string包中的函数" class="headerlink" title="golang学习过程中接触到了字符串处理，每种语言都有字符串处理的内建函数，golang则是将内建函数放置在string包中，概括了一些常用的string包中的函数"></a>golang学习过程中接触到了字符串处理，每种语言都有字符串处理的内建函数，golang则是将内建函数放置在string包中，概括了一些常用的string包中的函数</h4><p>列举如下：</p>
-<p>HasPrefix:判断字符串 s 是否以 prefix 开头：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings.HasPrefix(s, prefix string) bool</span><br></pre></td></tr></table></figure>
-
-<p>HasSuffix 判断字符串 s 是否以 suffix 结尾：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings.HasSuffix(s, suffix string) bool</span><br></pre></td></tr></table></figure>
-
-<p>Contains 判断字符串 s 是否包含 substr：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings.Contains(s, substr string) bool</span><br></pre></td></tr></table></figure>
-
-<p>Index 返回字符串 str 在字符串 s 中的索引（str 的第一个字符的索引），-1 表示字符串 s 不包含字符串 str：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings.Index(s, str string) int</span><br></pre></td></tr></table></figure>
-
-<p>LastIndex 返回字符串 str 在字符串 s 中最后出现位置的索引（str 的第一个字符的索引），-1 表示字符串 s 不包含字符串 str：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings.LastIndex(s, str string) int</span><br></pre></td></tr></table></figure>
-
-<p>如果需要查询非 ASCII 编码的字符在父字符串中的位置，建议使用以下函数来对字符进行定位：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings.IndexRune(s string, r rune|int int) int</span><br></pre></td></tr></table></figure>
-
-<p>Replace 用于将字符串 str 中的前 n 个字符串 old 替换为字符串 new，并返回一个新的字符串，如果 n = -1 则替换所有字符串 old 为字符串 new：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings.Replace(str, old, new, n) string</span><br></pre></td></tr></table></figure>
-
-<p>Count 用于计算字符串 str 在字符串 s 中出现的非重叠次数：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings.Count(s, str string) int</span><br></pre></td></tr></table></figure>
-
-<p>Repeat 用于重复 count 次字符串 s 并返回一个新的字符串：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings.Repeat(s, count int) string</span><br></pre></td></tr></table></figure>
-
-<p>ToLower 将字符串中的 Unicode 字符全部转换为相应的小写字符：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings.ToLower(s) string</span><br></pre></td></tr></table></figure>
-
-<p>ToUpper 将字符串中的 Unicode 字符全部转换为相应的大写字符：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings.ToUpper(s) string</span><br></pre></td></tr></table></figure>
-
-<p> strings.TrimSpace(s) 来剔除字符串开头和结尾的空白符号；如果你想要剔除指定字符，则可以使用 strings.Trim(s, “cut”) 来将开头和结尾的 cut 去除掉。该函数的第二个参数可以包含任何字符，如果你只想剔除开头或者结尾的字符串，则可以使用 TrimLeft 或者 TrimRight 来实现。</p>
-<p>strings.Fields(s) 将会利用 1 个或多个空白符号来作为动态长度的分隔符将字符串分割成若干小块，并返回一个 slice，如果字符串只包含空白符号，则返回一个长度为 0 的 slice。</p>
-<p>strings.Split(s, sep) 用于自定义分割符号来对指定字符串进行分割，同样返回 slice。</p>
-<p>更多函数详见官方文档 <a href="http://docscn.studygolang.com/pkg/strings/" target="_blank" rel="noopener">string包</a></p>
-<p>字符串相关的类型转换都是通过 strconv 包实现的。<br>针对从数字类型转换到字符串，Go 提供了以下函数：</p>
+<h4 id="如果我们要测试一段代码的时间复杂度，在python中有一个包里的类是专门用于测试性能的。"><a href="#如果我们要测试一段代码的时间复杂度，在python中有一个包里的类是专门用于测试性能的。" class="headerlink" title="如果我们要测试一段代码的时间复杂度，在python中有一个包里的类是专门用于测试性能的。"></a>如果我们要测试一段代码的时间复杂度，在python中有一个包里的类是专门用于测试性能的。</h4><h3 id="1-时间复杂度"><a href="#1-时间复杂度" class="headerlink" title="1.时间复杂度"></a>1.时间复杂度</h3><p>学习数据结构的时候都接触过时间复杂度，其实就是判断算法性能的一种方式，还有空间复杂度也是一样。计算时间复杂度的时候，我们遵循下面几条规则：</p>
 <ul>
-<li>strconv.Itoa(i int) string 返回数字 i 所表示的字符串类型的十进制数。</li>
-<li>strconv.FormatFloat(f float64, fmt byte, prec int, bitSize int) string 将 64 位浮点型的数字转换为字符串，其中 fmt 表示格式（其值可以是 ‘b’、’e’、’f’ 或 ‘g’），prec 表示精度，bitSize 则使用 32 表示 float32，用 64 表示 float64。<br>针对从字符串类型转换为数字类型，Go 提供了以下函数：</li>
-<li>strconv.Atoi(s string) (i int, err error) 将字符串转换为 int 型。</li>
-<li>strconv.ParseFloat(s string, bitSize int) (f float64, err error) 将字符串转换为 float64 型。</li>
+<li>基本操作，即只有常数项，认为其时间复杂度为O(1)</li>
+<li>顺序结构，时间复杂度按加法进行计算</li>
+<li>循环结构，时间复杂度按乘法进行计算</li>
+<li>分支结构，时间复杂度取最大值</li>
+<li>判断一个算法的效率时，往往只需要关注操作数量的最高次项，其它次要项和常数项可以忽略</li>
+<li>在没有特殊说明时，我们所分析的算法的时间复杂度都是指最坏时间复杂度</li>
 </ul>
-<p>利用多返回值的特性，这些函数会返回 2 个值，第 1 个是转换后的结果（如果转换成功），第 2 个是可能出现的错误</p>
-<p>更多函数详见官方文档 <a href="http://docs.studygolang.com/pkg/strconv/" target="_blank" rel="noopener">strconv包</a></p>
+<p>一般来说所消耗的时间复杂度如下列所示：<br>O(1) &lt; O(logn) &lt; O(n) &lt; O(nlogn) &lt; O(n^2) &lt; O(n^3) &lt; O(2^n) &lt; O(n!) &lt; O(n^n)</p>
+<h3 id="2-python中timeit模块"><a href="#2-python中timeit模块" class="headerlink" title="2.python中timeit模块"></a>2.python中timeit模块</h3><p>timeit模块可以用来测试一小段Python代码的执行速度。</p>
+<p>class timeit.Timer(stmt=’pass’, setup=’pass’, timer=<timer function>)</timer></p>
+<p>Timer是测量小段代码执行速度的类。</p>
+<p>stmt参数是要测试的代码语句（statment）；</p>
+<p>setup参数是运行代码时需要的设置；</p>
+<p>timer参数是一个定时器函数，与平台有关。</p>
+<p>timeit.Timer.timeit(number=1000000)</p>
+<p>Timer类中测试语句执行速度的对象方法。number参数是测试代码时的测试次数，默认为1000000次。方法返回执行代码的平均耗时，一个float类型的秒数</p>
+<p>下面为展示实例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">def test1():</span><br><span class="line">   l = []</span><br><span class="line">   for i in range(1000):</span><br><span class="line">      l = l + [i]</span><br><span class="line">def test2():</span><br><span class="line">   l = []</span><br><span class="line">   for i in range(1000):</span><br><span class="line">      l.append(i)</span><br><span class="line">def test3():</span><br><span class="line">   l = [i for i in range(1000)]</span><br><span class="line">def test4():</span><br><span class="line">   l = list(range(1000))</span><br><span class="line"></span><br><span class="line">from timeit import Timer</span><br><span class="line"></span><br><span class="line">t1 = Timer(&quot;test1()&quot;, &quot;from __main__ import test1&quot;)</span><br><span class="line">print(&quot;concat &quot;,t1.timeit(number=1000), &quot;seconds&quot;)</span><br><span class="line">t2 = Timer(&quot;test2()&quot;, &quot;from __main__ import test2&quot;)</span><br><span class="line">print(&quot;append &quot;,t2.timeit(number=1000), &quot;seconds&quot;)</span><br><span class="line">t3 = Timer(&quot;test3()&quot;, &quot;from __main__ import test3&quot;)</span><br><span class="line">print(&quot;comprehension &quot;,t3.timeit(number=1000), &quot;seconds&quot;)</span><br><span class="line">t4 = Timer(&quot;test4()&quot;, &quot;from __main__ import test4&quot;)</span><br><span class="line">print(&quot;list range &quot;,t4.timeit(number=1000), &quot;seconds&quot;)</span><br><span class="line"></span><br><span class="line"># (&apos;concat &apos;, 1.7890608310699463, &apos;seconds&apos;)</span><br><span class="line"># (&apos;append &apos;, 0.13796091079711914, &apos;seconds&apos;)</span><br><span class="line"># (&apos;comprehension &apos;, 0.05671119689941406, &apos;seconds&apos;)</span><br><span class="line"># (&apos;list range &apos;, 0.014147043228149414, &apos;seconds&apos;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-python中内置一些方法的效率"><a href="#3-python中内置一些方法的效率" class="headerlink" title="3.python中内置一些方法的效率"></a>3.python中内置一些方法的效率</h3><p>对于List的：<br><img src="https://ae01.alicdn.com/kf/U068553d9b6a0495da321e21056ed170d1.png" alt="image"></p>
+<p>对于dict的：<br><img src="https://ae01.alicdn.com/kf/U96713b58f9d5409a8e21de4e57125d8fh.png" alt="image"></p>
 
       
     </div>
@@ -427,9 +406,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/golang/" rel="tag"><i class="fa fa-tag"></i> golang</a>
+            <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
           
-            <a href="/tags/string/" rel="tag"><i class="fa fa-tag"></i> string</a>
+            <a href="/tags/timeit/" rel="tag"><i class="fa fa-tag"></i> timeit</a>
           
         </div>
       
@@ -442,8 +421,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/10/15/django用haystack进行索引的建立及查询/" rel="next" title="django使用haystack实现索引查找">
-                <i class="fa fa-chevron-left"></i> django使用haystack实现索引查找
+              <a href="/2019/12/18/redis的基本数据结构/" rel="next" title="redis的基本数据结构">
+                <i class="fa fa-chevron-left"></i> redis的基本数据结构
               </a>
             
           </div>
@@ -451,10 +430,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/11/01/go中goroutines与channels/" rel="prev" title="go中goroutines与channels">
-                go中goroutines与channels <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -604,7 +579,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#golang学习过程中接触到了字符串处理，每种语言都有字符串处理的内建函数，golang则是将内建函数放置在string包中，概括了一些常用的string包中的函数"><span class="nav-number">1.</span> <span class="nav-text">golang学习过程中接触到了字符串处理，每种语言都有字符串处理的内建函数，golang则是将内建函数放置在string包中，概括了一些常用的string包中的函数</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#如果我们要测试一段代码的时间复杂度，在python中有一个包里的类是专门用于测试性能的。"><span class="nav-number">1.</span> <span class="nav-text">如果我们要测试一段代码的时间复杂度，在python中有一个包里的类是专门用于测试性能的。</span></a></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#1-时间复杂度"><span class="nav-number"></span> <span class="nav-text">1.时间复杂度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-python中timeit模块"><span class="nav-number"></span> <span class="nav-text">2.python中timeit模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-python中内置一些方法的效率"><span class="nav-number"></span> <span class="nav-text">3.python中内置一些方法的效率</span></a></li></div>
             
 
           </div>
