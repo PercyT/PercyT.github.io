@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="golang,string,">
+  <meta name="keywords" content="递归,">
 
 
 
@@ -79,18 +79,20 @@
 
 
 
-<meta name="description" content="golang学习过程中接触到了字符串处理，每种语言都有字符串处理的内建函数，golang则是将内建函数放置在string包中，概括了一些常用的string包中的函数列举如下： HasPrefix:判断字符串 s 是否以 prefix 开头： 1strings.HasPrefix(s, prefix string) bool  HasSuffix 判断字符串 s 是否以 suffix 结尾： 1s">
-<meta name="keywords" content="golang,string">
+<meta name="description" content="在学习数据结构的时候，汉诺塔总是作为学习递归的入门例子，让入门理解递归，但书上所讲的汉诺塔问题过于复杂，让人无法理解，这里提供一下我的思路与想法。1.递归与循环递归的本质其实就是使用栈对信息进行压栈和出栈，在写算法题的时候也经常会用到递归，写出来的代码也会比较简洁。不过在递归中会出现很多节点都是重复的现象，比如下面的代码 123456def Fibonacci(n):    if n&amp;lt;=0">
+<meta name="keywords" content="递归">
 <meta property="og:type" content="article">
-<meta property="og:title" content="go中的string包">
-<meta property="og:url" content="http://yoursite.com/2019/10/19/go中的string包/index.html">
+<meta property="og:title" content="递归与汉诺塔问题">
+<meta property="og:url" content="http://yoursite.com/2019/08/20/递归与汉诺塔问题/index.html">
 <meta property="og:site_name" content="PercyT’s blog">
-<meta property="og:description" content="golang学习过程中接触到了字符串处理，每种语言都有字符串处理的内建函数，golang则是将内建函数放置在string包中，概括了一些常用的string包中的函数列举如下： HasPrefix:判断字符串 s 是否以 prefix 开头： 1strings.HasPrefix(s, prefix string) bool  HasSuffix 判断字符串 s 是否以 suffix 结尾： 1s">
+<meta property="og:description" content="在学习数据结构的时候，汉诺塔总是作为学习递归的入门例子，让入门理解递归，但书上所讲的汉诺塔问题过于复杂，让人无法理解，这里提供一下我的思路与想法。1.递归与循环递归的本质其实就是使用栈对信息进行压栈和出栈，在写算法题的时候也经常会用到递归，写出来的代码也会比较简洁。不过在递归中会出现很多节点都是重复的现象，比如下面的代码 123456def Fibonacci(n):    if n&amp;lt;=0">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-19T06:10:29.974Z">
+<meta property="og:image" content="https://images2018.cnblogs.com/blog/1027447/201803/1027447-20180317202111627-461590421.png">
+<meta property="og:updated_time" content="2020-01-30T08:33:24.372Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="go中的string包">
-<meta name="twitter:description" content="golang学习过程中接触到了字符串处理，每种语言都有字符串处理的内建函数，golang则是将内建函数放置在string包中，概括了一些常用的string包中的函数列举如下： HasPrefix:判断字符串 s 是否以 prefix 开头： 1strings.HasPrefix(s, prefix string) bool  HasSuffix 判断字符串 s 是否以 suffix 结尾： 1s">
+<meta name="twitter:title" content="递归与汉诺塔问题">
+<meta name="twitter:description" content="在学习数据结构的时候，汉诺塔总是作为学习递归的入门例子，让入门理解递归，但书上所讲的汉诺塔问题过于复杂，让人无法理解，这里提供一下我的思路与想法。1.递归与循环递归的本质其实就是使用栈对信息进行压栈和出栈，在写算法题的时候也经常会用到递归，写出来的代码也会比较简洁。不过在递归中会出现很多节点都是重复的现象，比如下面的代码 123456def Fibonacci(n):    if n&amp;lt;=0">
+<meta name="twitter:image" content="https://images2018.cnblogs.com/blog/1027447/201803/1027447-20180317202111627-461590421.png">
 
 
 
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/10/19/go中的string包/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/20/递归与汉诺塔问题/">
 
 
 
 
 
-  <title>go中的string包 | PercyT’s blog</title>
+  <title>递归与汉诺塔问题 | PercyT’s blog</title>
   
 
 
@@ -263,7 +265,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/19/go中的string包/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/20/递归与汉诺塔问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Percy">
@@ -280,7 +282,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">go中的string包</h1>
+          <h1 class="post-title" itemprop="name headline">递归与汉诺塔问题</h1>
         
 
         <div class="post-meta">
@@ -292,8 +294,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-19T13:57:53+08:00">
-                2019-10-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-20T12:51:10+08:00">
+                2019-08-20
               </time>
             
 
@@ -315,8 +317,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/golang/" itemprop="url" rel="index">
-                    <span itemprop="name">golang</span>
+                  <a href="/categories/算法与数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">算法与数据结构</span>
                   </a>
                 </span>
 
@@ -353,53 +355,24 @@
 
       
         <hr>
-<h4 id="golang学习过程中接触到了字符串处理，每种语言都有字符串处理的内建函数，golang则是将内建函数放置在string包中，概括了一些常用的string包中的函数"><a href="#golang学习过程中接触到了字符串处理，每种语言都有字符串处理的内建函数，golang则是将内建函数放置在string包中，概括了一些常用的string包中的函数" class="headerlink" title="golang学习过程中接触到了字符串处理，每种语言都有字符串处理的内建函数，golang则是将内建函数放置在string包中，概括了一些常用的string包中的函数"></a>golang学习过程中接触到了字符串处理，每种语言都有字符串处理的内建函数，golang则是将内建函数放置在string包中，概括了一些常用的string包中的函数</h4><p>列举如下：</p>
-<p>HasPrefix:判断字符串 s 是否以 prefix 开头：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings.HasPrefix(s, prefix string) bool</span><br></pre></td></tr></table></figure>
+<h4 id="在学习数据结构的时候，汉诺塔总是作为学习递归的入门例子，让入门理解递归，但书上所讲的汉诺塔问题过于复杂，让人无法理解，这里提供一下我的思路与想法。"><a href="#在学习数据结构的时候，汉诺塔总是作为学习递归的入门例子，让入门理解递归，但书上所讲的汉诺塔问题过于复杂，让人无法理解，这里提供一下我的思路与想法。" class="headerlink" title="在学习数据结构的时候，汉诺塔总是作为学习递归的入门例子，让入门理解递归，但书上所讲的汉诺塔问题过于复杂，让人无法理解，这里提供一下我的思路与想法。"></a>在学习数据结构的时候，汉诺塔总是作为学习递归的入门例子，让入门理解递归，但书上所讲的汉诺塔问题过于复杂，让人无法理解，这里提供一下我的思路与想法。</h4><h3 id="1-递归与循环"><a href="#1-递归与循环" class="headerlink" title="1.递归与循环"></a>1.递归与循环</h3><p>递归的本质其实就是使用栈对信息进行压栈和出栈，在写算法题的时候也经常会用到递归，写出来的代码也会比较简洁。不过在递归中会出现很多节点都是重复的现象，比如下面的代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def Fibonacci(n):</span><br><span class="line">    if n&lt;=0:</span><br><span class="line">        return 0</span><br><span class="line">    if n==1:</span><br><span class="line">        return 1</span><br><span class="line">    return Fibonacci(n-1)+Fibonacci(n-2)</span><br></pre></td></tr></table></figure>
 
-<p>HasSuffix 判断字符串 s 是否以 suffix 结尾：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings.HasSuffix(s, suffix string) bool</span><br></pre></td></tr></table></figure>
-
-<p>Contains 判断字符串 s 是否包含 substr：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings.Contains(s, substr string) bool</span><br></pre></td></tr></table></figure>
-
-<p>Index 返回字符串 str 在字符串 s 中的索引（str 的第一个字符的索引），-1 表示字符串 s 不包含字符串 str：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings.Index(s, str string) int</span><br></pre></td></tr></table></figure>
-
-<p>LastIndex 返回字符串 str 在字符串 s 中最后出现位置的索引（str 的第一个字符的索引），-1 表示字符串 s 不包含字符串 str：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings.LastIndex(s, str string) int</span><br></pre></td></tr></table></figure>
-
-<p>如果需要查询非 ASCII 编码的字符在父字符串中的位置，建议使用以下函数来对字符进行定位：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings.IndexRune(s string, r rune|int int) int</span><br></pre></td></tr></table></figure>
-
-<p>Replace 用于将字符串 str 中的前 n 个字符串 old 替换为字符串 new，并返回一个新的字符串，如果 n = -1 则替换所有字符串 old 为字符串 new：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings.Replace(str, old, new, n) string</span><br></pre></td></tr></table></figure>
-
-<p>Count 用于计算字符串 str 在字符串 s 中出现的非重叠次数：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings.Count(s, str string) int</span><br></pre></td></tr></table></figure>
-
-<p>Repeat 用于重复 count 次字符串 s 并返回一个新的字符串：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings.Repeat(s, count int) string</span><br></pre></td></tr></table></figure>
-
-<p>ToLower 将字符串中的 Unicode 字符全部转换为相应的小写字符：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings.ToLower(s) string</span><br></pre></td></tr></table></figure>
-
-<p>ToUpper 将字符串中的 Unicode 字符全部转换为相应的大写字符：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings.ToUpper(s) string</span><br></pre></td></tr></table></figure>
-
-<p> strings.TrimSpace(s) 来剔除字符串开头和结尾的空白符号；如果你想要剔除指定字符，则可以使用 strings.Trim(s, “cut”) 来将开头和结尾的 cut 去除掉。该函数的第二个参数可以包含任何字符，如果你只想剔除开头或者结尾的字符串，则可以使用 TrimLeft 或者 TrimRight 来实现。</p>
-<p>strings.Fields(s) 将会利用 1 个或多个空白符号来作为动态长度的分隔符将字符串分割成若干小块，并返回一个 slice，如果字符串只包含空白符号，则返回一个长度为 0 的 slice。</p>
-<p>strings.Split(s, sep) 用于自定义分割符号来对指定字符串进行分割，同样返回 slice。</p>
-<p>更多函数详见官方文档 <a href="http://docscn.studygolang.com/pkg/strings/" target="_blank" rel="noopener">string包</a></p>
-<p>字符串相关的类型转换都是通过 strconv 包实现的。<br>针对从数字类型转换到字符串，Go 提供了以下函数：</p>
+<p>这个代码看上去很简单使用了递归，但这个递归问题有着很严重的缺陷，比如在计算f(10)时需要知道f(9)和f(8)，在计算f(9)时还需要知道f(8)，出现了很多重复计算的节点，而且是以指数的方式递增，所以有些时候我们用循环会更适合，</p>
+<h3 id="2-递归的解决"><a href="#2-递归的解决" class="headerlink" title="2.递归的解决"></a>2.递归的解决</h3><p>一般来说我们要用递归解决问题，要确定两个东西。</p>
 <ul>
-<li>strconv.Itoa(i int) string 返回数字 i 所表示的字符串类型的十进制数。</li>
-<li>strconv.FormatFloat(f float64, fmt byte, prec int, bitSize int) string 将 64 位浮点型的数字转换为字符串，其中 fmt 表示格式（其值可以是 ‘b’、’e’、’f’ 或 ‘g’），prec 表示精度，bitSize 则使用 32 表示 float32，用 64 表示 float64。<br>针对从字符串类型转换为数字类型，Go 提供了以下函数：</li>
-<li>strconv.Atoi(s string) (i int, err error) 将字符串转换为 int 型。</li>
-<li>strconv.ParseFloat(s string, bitSize int) (f float64, err error) 将字符串转换为 float64 型。</li>
+<li>递归表达式，比如斐波那契数列中的f(n)=f(n-1)+f(n-2)</li>
+<li>递归出口，一般来说都是底层的出口，比如f(1)=1,<br>只要能够确定这两个，后面的代码流程便变得很简单</li>
 </ul>
-<p>利用多返回值的特性，这些函数会返回 2 个值，第 1 个是转换后的结果（如果转换成功），第 2 个是可能出现的错误</p>
-<p>更多函数详见官方文档 <a href="http://docs.studygolang.com/pkg/strconv/" target="_blank" rel="noopener">strconv包</a></p>
+<h3 id="3-哈诺塔问题"><a href="#3-哈诺塔问题" class="headerlink" title="3.哈诺塔问题"></a>3.哈诺塔问题</h3><p>有三根杆子A,B,C。A杆上有N个(N&gt;1)穿孔圆盘,盘的尺寸由下到上依次变小.要求按下列规则将所有圆盘移至C杆：<br>1.每次只能移动一个圆盘；<br>2.大盘不能叠在小盘上面.<br>可将圆盘临时置于B杆,也可将从A杆移出的圆盘重新移回A杆,但都必须尊循上述两条规则。求移动的过程。<br><img src="https://images2018.cnblogs.com/blog/1027447/201803/1027447-20180317202111627-461590421.png" alt="image"><br>对于解决问题有一定难度的汉诺塔问题，使用递归的话解决则变的十分简单，但直接看代码十分的难以理解，先附上代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def hanoi(n,x,y,z):</span><br><span class="line">    if n==1:</span><br><span class="line">        move(x,z)</span><br><span class="line">    else:</span><br><span class="line">        hanoi(n-1,x,z,y)</span><br><span class="line">        move(x,z)</span><br><span class="line">        hanoi(n-1,y,x,z)</span><br></pre></td></tr></table></figure>
+
+<p>我们把问题分成三部分：</p>
+<p>（1）将X上n-1个盘子借助Z移动到Y；</p>
+<p>（2）将X剩下的一个盘子移动到Z；</p>
+<p>（3）将Y上n-1个盘子借助X移动到Z。</p>
+<p>然后hanoi中的参数的意思就是，n代表盘数，x代表要移动的轴，y代表辅助轴，z代表移动到的轴，也就将n个盘子从x轴上绕过y轴移动到z轴，</p>
+<p>按照这样的意思理解代码，递归关系式就是先将x上的东西借助z移动到y，然后move(x,z)将剩下的最后一个盘子从x移动到z，最后再将之前在y上的盘借助x轴移动到z轴上面。</p>
 
       
     </div>
@@ -427,9 +400,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/golang/" rel="tag"><i class="fa fa-tag"></i> golang</a>
-          
-            <a href="/tags/string/" rel="tag"><i class="fa fa-tag"></i> string</a>
+            <a href="/tags/递归/" rel="tag"><i class="fa fa-tag"></i> 递归</a>
           
         </div>
       
@@ -442,18 +413,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/10/15/django用haystack进行索引的建立及查询/" rel="next" title="django使用haystack实现索引查找">
-                <i class="fa fa-chevron-left"></i> django使用haystack实现索引查找
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/11/01/go中goroutines与channels/" rel="prev" title="go中goroutines与channels">
-                go中goroutines与channels <i class="fa fa-chevron-right"></i>
+              <a href="/2019/09/26/django-restful/" rel="prev" title="用Django写restful接口遇到的问题">
+                用Django写restful接口遇到的问题 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -604,7 +571,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#golang学习过程中接触到了字符串处理，每种语言都有字符串处理的内建函数，golang则是将内建函数放置在string包中，概括了一些常用的string包中的函数"><span class="nav-number">1.</span> <span class="nav-text">golang学习过程中接触到了字符串处理，每种语言都有字符串处理的内建函数，golang则是将内建函数放置在string包中，概括了一些常用的string包中的函数</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#在学习数据结构的时候，汉诺塔总是作为学习递归的入门例子，让入门理解递归，但书上所讲的汉诺塔问题过于复杂，让人无法理解，这里提供一下我的思路与想法。"><span class="nav-number">1.</span> <span class="nav-text">在学习数据结构的时候，汉诺塔总是作为学习递归的入门例子，让入门理解递归，但书上所讲的汉诺塔问题过于复杂，让人无法理解，这里提供一下我的思路与想法。</span></a></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#1-递归与循环"><span class="nav-number"></span> <span class="nav-text">1.递归与循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-递归的解决"><span class="nav-number"></span> <span class="nav-text">2.递归的解决</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-哈诺塔问题"><span class="nav-number"></span> <span class="nav-text">3.哈诺塔问题</span></a></li></div>
             
 
           </div>
