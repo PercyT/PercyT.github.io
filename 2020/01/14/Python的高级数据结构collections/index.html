@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="git,">
+  <meta name="keywords" content="Python,collections,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="记录一下自己使用github时候的一些常用指令，便于以后查看.通过简单的步骤之后就会有一个属于自己的GitHub账号。再简单注册完成之后会需要验证你所输入的邮箱才能正常使用GitHub。  在注册完成之后，完成一些简单的设置之后，需要创建一个属于自己的库  在创建完成自己的库之后，下面就要让自己的电脑克隆一个自己所创建的库，方面自己电脑上的代码同步到GitHub你所创建的库当中。   为了实现，">
-<meta name="keywords" content="git">
+<meta name="description" content="在python除了一些基础的数据结构之外，在collection包中封装了一些拓展性的数据结构1. namedtupleTuple还有一个兄弟，叫namedtuple。虽然都是tuple，但是功能更为强大。对于namedtuple，你不必再通过索引值进行访问，你可以把它看做一个字典通过名字进行访问，只不过其中的值是不能改变的。 1234567891011121314151617181920212">
+<meta name="keywords" content="Python,collections">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git和github基本教程">
-<meta property="og:url" content="http://yoursite.com/2019/10/01/git和github基本教程/index.html">
+<meta property="og:title" content="Python的高级数据结构collections">
+<meta property="og:url" content="http://yoursite.com/2020/01/14/Python的高级数据结构collections/index.html">
 <meta property="og:site_name" content="PercyT’s blog">
-<meta property="og:description" content="记录一下自己使用github时候的一些常用指令，便于以后查看.通过简单的步骤之后就会有一个属于自己的GitHub账号。再简单注册完成之后会需要验证你所输入的邮箱才能正常使用GitHub。  在注册完成之后，完成一些简单的设置之后，需要创建一个属于自己的库  在创建完成自己的库之后，下面就要让自己的电脑克隆一个自己所创建的库，方面自己电脑上的代码同步到GitHub你所创建的库当中。   为了实现，">
+<meta property="og:description" content="在python除了一些基础的数据结构之外，在collection包中封装了一些拓展性的数据结构1. namedtupleTuple还有一个兄弟，叫namedtuple。虽然都是tuple，但是功能更为强大。对于namedtuple，你不必再通过索引值进行访问，你可以把它看做一个字典通过名字进行访问，只不过其中的值是不能改变的。 1234567891011121314151617181920212">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-28T08:39:42.442Z">
+<meta property="og:updated_time" content="2020-03-14T14:21:24.861Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git和github基本教程">
-<meta name="twitter:description" content="记录一下自己使用github时候的一些常用指令，便于以后查看.通过简单的步骤之后就会有一个属于自己的GitHub账号。再简单注册完成之后会需要验证你所输入的邮箱才能正常使用GitHub。  在注册完成之后，完成一些简单的设置之后，需要创建一个属于自己的库  在创建完成自己的库之后，下面就要让自己的电脑克隆一个自己所创建的库，方面自己电脑上的代码同步到GitHub你所创建的库当中。   为了实现，">
+<meta name="twitter:title" content="Python的高级数据结构collections">
+<meta name="twitter:description" content="在python除了一些基础的数据结构之外，在collection包中封装了一些拓展性的数据结构1. namedtupleTuple还有一个兄弟，叫namedtuple。虽然都是tuple，但是功能更为强大。对于namedtuple，你不必再通过索引值进行访问，你可以把它看做一个字典通过名字进行访问，只不过其中的值是不能改变的。 1234567891011121314151617181920212">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/10/01/git和github基本教程/">
+  <link rel="canonical" href="http://yoursite.com/2020/01/14/Python的高级数据结构collections/">
 
 
 
 
 
-  <title>git和github基本教程 | PercyT’s blog</title>
+  <title>Python的高级数据结构collections | PercyT’s blog</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/01/git和github基本教程/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/14/Python的高级数据结构collections/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Percy">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">git和github基本教程</h1>
+          <h1 class="post-title" itemprop="name headline">Python的高级数据结构collections</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-01T15:46:28+08:00">
-                2019-10-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-14T21:43:14+08:00">
+                2020-01-14
               </time>
             
 
@@ -315,8 +315,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/git/" itemprop="url" rel="index">
-                    <span itemprop="name">git</span>
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
                   </a>
                 </span>
 
@@ -353,64 +353,22 @@
 
       
         <hr>
-<h4 id="记录一下自己使用github时候的一些常用指令，便于以后查看"><a href="#记录一下自己使用github时候的一些常用指令，便于以后查看" class="headerlink" title="记录一下自己使用github时候的一些常用指令，便于以后查看."></a>记录一下自己使用github时候的一些常用指令，便于以后查看.</h4><p>通过简单的步骤之后就会有一个属于自己的GitHub账号。再简单注册完成之后会需要验证你所输入的邮箱才能正常使用GitHub。</p>
-<p> 在注册完成之后，完成一些简单的设置之后，需要创建一个属于自己的库</p>
-<p> 在创建完成自己的库之后，下面就要让自己的电脑克隆一个自己所创建的库，方面自己电脑上的代码同步到GitHub你所创建的库当中。</p>
-<p>  为了实现，就需要安装一个软件，Git Bash。<br>  进入git bash 后首先初始化git ，使用git先要在本地创建一个项目，用于存放代码。在git终端进入项目地址，初始化git。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd Desktop/project</span><br><span class="line">$ git init</span><br></pre></td></tr></table></figure>
+<h4 id="在python除了一些基础的数据结构之外，在collection包中封装了一些拓展性的数据结构"><a href="#在python除了一些基础的数据结构之外，在collection包中封装了一些拓展性的数据结构" class="headerlink" title="在python除了一些基础的数据结构之外，在collection包中封装了一些拓展性的数据结构"></a>在python除了一些基础的数据结构之外，在collection包中封装了一些拓展性的数据结构</h4><h3 id="1-namedtuple"><a href="#1-namedtuple" class="headerlink" title="1. namedtuple"></a>1. namedtuple</h3><p>Tuple还有一个兄弟，叫namedtuple。虽然都是tuple，但是功能更为强大。对于namedtuple，你不必再通过索引值进行访问，你可以把它看做一个字典通过名字进行访问，只不过其中的值是不能改变的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"># tuple 可以表示不变集合 列如坐标 point = (1,1)</span><br><span class="line"># 缺点是 只可以通过下标方式访问</span><br><span class="line"></span><br><span class="line">#namedtuple是一个函数，它用来创建一个自定义的tuple对象，并且规定了# tuple元素的个数，并可以用属性而不是索引来引用tuple的某个元素。</span><br><span class="line"></span><br><span class="line"># 这样一来，我们用namedtuple可以很方便地定义一种数据类型，它具备</span><br><span class="line"># tuple的不变性，又可以根据属性来引用，使用十分方便。</span><br><span class="line">from collections import namedtuple</span><br><span class="line"></span><br><span class="line">point = namedtuple(&quot;point&quot;, [&apos;x&apos;, &apos;y&apos;])</span><br><span class="line">p = point(1, 2)</span><br><span class="line"></span><br><span class="line">print(p.x)</span><br><span class="line">print(isinstance(p, Point))        # Ture</span><br><span class="line">print(isinstance(p, tuple))        # Ture</span><br><span class="line">print(p.y)</span><br><span class="line"># Point对象是tuple的一种子类     </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#类似的，如果要用坐标和半径表示一个圆  </span><br><span class="line"># namedtuple(&apos;名称&apos;, [属性list]):</span><br><span class="line">Circle = namedtuple(&apos;Circle&apos;, [&apos;x&apos;, &apos;y&apos;, &apos;r&apos;])</span><br></pre></td></tr></table></figure>
 
-<p>创建ssh key</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="2-deque"><a href="#2-deque" class="headerlink" title="2. deque"></a>2. deque</h3><p>这个在我刷算法题的时候作用也是挺大的，当用列表作为栈或者队列要频繁插入或者删除元素的时候使用，本质上是一个双向列表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#双向队列</span><br><span class="line">#定义长度，可用于历史记录的查询</span><br><span class="line"># deque除了实现list的append()和pop()外，还支持appendleft()和</span><br><span class="line"># popleft()，这样就可以非常高效地往头部添加或删除元素</span><br><span class="line"></span><br><span class="line">from collections import deque</span><br><span class="line"></span><br><span class="line">q = deque([7,8,9],maxlen=10)</span><br><span class="line">q.append(1)</span><br><span class="line">print(q)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 详情参照： https://www.cnblogs.com/mangmangbiluo/articles/9805939.html</span><br></pre></td></tr></table></figure>
 
-<p>(这里的<a href="mailto:your_email@example.com" target="_blank" rel="noopener">your_email@example.com</a>要改成你自己github上绑定的邮箱)一般情况下就直接按回车一路过就可以。<br>在终端复制ssh key</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ clip &lt; ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+<h3 id="3-defaultdict"><a href="#3-defaultdict" class="headerlink" title="3. defaultdict"></a>3. defaultdict</h3><p>使用dict时，如果引用的Key不存在，就会抛出KeyError。如果希望key不存在时，返回一个默认值，就可以用defaultdict</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from collections import defaultdict</span><br><span class="line">dd = defaultdict(lambda: &apos;N/A&apos;)</span><br><span class="line"># 当访问的键值不在里面的时候，返回 N/A</span><br></pre></td></tr></table></figure>
 
-<p>现在你就需要登录到GitHub上边添加这个密匙，在github个人主页点击“setting–SSH and GPG keys–New SSH key”,点击添加。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<h3 id="4-OrderedDict"><a href="#4-OrderedDict" class="headerlink" title="4. OrderedDict"></a>4. OrderedDict</h3><p>使用dict时，Key是无序的。在对dict做迭代时，我们无法确定Key的顺序。</p>
+<p>如果要保持Key的顺序，可以用OrderedDict</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from collections import OrderedDict</span><br><span class="line">d = dict([(&apos;a&apos;, 1), (&apos;b&apos;, 2), (&apos;c&apos;, 3)])</span><br><span class="line">d # dict的Key是无序的</span><br><span class="line">&#123;&apos;a&apos;: 1, &apos;c&apos;: 3, &apos;b&apos;: 2&#125;</span><br><span class="line">od = OrderedDict([(&apos;a&apos;, 1), (&apos;b&apos;, 2), (&apos;c&apos;, 3)])</span><br><span class="line">od # OrderedDict的Key是有序的</span><br><span class="line">OrderedDict([(&apos;a&apos;, 1), (&apos;b&apos;, 2), (&apos;c&apos;, 3)])</span><br></pre></td></tr></table></figure>
 
-<p>然后输入上边的代码，来检查是否成功绑定。第一次绑定的时候输入上边的代码之后会提示是否continue，在输入yes后如果出现了：You’ve successfully authenticated, but GitHub does not provide shell access 。那就说明，已经成功连上了GitHub。接下来还需要简单的设置一些东西。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;your name&quot;</span><br><span class="line">$ git config --global user.email &quot;your email&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="5-counter"><a href="#5-counter" class="headerlink" title="5. counter"></a>5. counter</h3><p>在一个列表内，遍历所有元素，将元素出现的次数记下来</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from collections import Counter</span><br><span class="line">a = [1,4,2,3,2,3,4,2]</span><br><span class="line">print(Counter(a))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Counter(&#123;2: 3, 4: 2, 3: 2, 1: 1&#125;)</span><br></pre></td></tr></table></figure>
 
-<p> 下面就要将刚才创建的库克隆下来到本地电脑中，方便以后进行上传代码。<br> 先cd 到想要保存的文件夹，然后执行下面的clone代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone &quot;链接可以是https也可以是ssh&quot;</span><br></pre></td></tr></table></figure>
-
-<p>这时候可以看见本地的发生了变化</p>
-<p>那么我们要想上传到远程库的步骤<br>首先在本地库添加要更改的东西</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add .</span><br></pre></td></tr></table></figure>
-
-<p>使用git add readme.txt，将该文件加入缓冲区，如果你确定所有的修改都需要提交，可以使用git add .来加入所有修改。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m &apos;my project push&apos;</span><br><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure>
-
-<p>之后输入然后git commit -m “my project push” 引号内的内容可以随意改动，这个语句的意思是 给你刚刚上传的文件一个备注，方便查找记忆而已。</p>
-<p>这里的master指的是主分支名，如果是其他分支，则填写相应的分支名。</p>
-<p>提交成功后，可以用git log查看历史提交记录。每个记录都会有提交id，作者和提交日期。</p>
-<p>你可以用git branch查看当前有哪些分支，当然，因为我们没有创建任何分支，目前只会有一个master分支。可以使用git checkout -b feature创建一个名为feature的分支。</p>
-<p>这样我们就将我们的项目上传到github仓库。<br>然后后面github网里就有我们上传的代码了</p>
-<p>简单讲，以后如果需要提交代码，你只需要将代码，放到库的对应的文件夹中，然后使用，git add 、git commit -m “   “ 、最后git push origin master，将你的代码提交就可以了。</p>
-<p> 第一步. 从GitHub上下载我们的项目代码。</p>
-<ol>
-<li>以Hello-World项目为例，点击绿色按钮Clone or download，然后在弹出窗口中点击剪切板图标，复制仓库的URL。</li>
-</ol>
-<ol start="2">
-<li>在git bash中输入git clone <a href="https://github.com/feicui-android/Hello-World.git，下载项目源码。" target="_blank" rel="noopener">https://github.com/feicui-android/Hello-World.git，下载项目源码。</a></li>
-</ol>
-<p>第二步. 查看版本历史<br>1.cd到项目文件夹下，使用git log能看到我们的历史提交记录。</p>
-<ol start="2">
-<li>要回到某一历史版本，可以使用git checkout commitId，看完后要回到最新代码，使用git checkout master。</li>
-</ol>
-<p>第三步. 本地修改代码<br>你可以在我们的代码基线上任意修改，但为了下载新代码时不出现冲突，请遵循以下步骤：</p>
-<ol>
-<li><p>下载新代码：git pull。</p>
-</li>
-<li><p>从master出捡出一个新的分支：git checkout -b feature。feature是分支名称，你可以随意取名，但请用英文。</p>
-</li>
-<li><p>在feature分支上随意修改，改完后你可以提交你的修改：git commit -m “some message”。</p>
-</li>
-<li><p>此时要同步代码，请先切回主分支：git checkout master，然后更新git pull。</p>
-</li>
-<li><p>如果想删除自己建立的分支，使用git branch -D feature，注意执行此命令后分支被强制删除，无法恢复。</p>
-</li>
-</ol>
 
       
     </div>
@@ -438,7 +396,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/git/" rel="tag"><i class="fa fa-tag"></i> git</a>
+            <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+          
+            <a href="/tags/collections/" rel="tag"><i class="fa fa-tag"></i> collections</a>
           
         </div>
       
@@ -451,8 +411,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/09/26/django-restful/" rel="next" title="用Django写restful接口遇到的问题">
-                <i class="fa fa-chevron-left"></i> 用Django写restful接口遇到的问题
+              <a href="/2020/01/02/浅拷贝与深拷贝/" rel="next" title="浅拷贝与深拷贝">
+                <i class="fa fa-chevron-left"></i> 浅拷贝与深拷贝
               </a>
             
           </div>
@@ -461,8 +421,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/10/05/django-debug-toolbar的使用/" rel="prev" title="django-debug-toolbar的使用">
-                django-debug-toolbar的使用 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/01/16/python内置类型性能分析/" rel="prev" title="python内置类型性能分析">
+                python内置类型性能分析 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -613,7 +573,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#记录一下自己使用github时候的一些常用指令，便于以后查看"><span class="nav-number">1.</span> <span class="nav-text">记录一下自己使用github时候的一些常用指令，便于以后查看.</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#在python除了一些基础的数据结构之外，在collection包中封装了一些拓展性的数据结构"><span class="nav-number">1.</span> <span class="nav-text">在python除了一些基础的数据结构之外，在collection包中封装了一些拓展性的数据结构</span></a></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#1-namedtuple"><span class="nav-number"></span> <span class="nav-text">1. namedtuple</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-deque"><span class="nav-number"></span> <span class="nav-text">2. deque</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-defaultdict"><span class="nav-number"></span> <span class="nav-text">3. defaultdict</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-OrderedDict"><span class="nav-number"></span> <span class="nav-text">4. OrderedDict</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-counter"><span class="nav-number"></span> <span class="nav-text">5. counter</span></a></li></div>
             
 
           </div>
